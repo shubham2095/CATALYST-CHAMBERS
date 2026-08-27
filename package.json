@@ -1,0 +1,13 @@
+{
+  "name": "catalyst-chambers-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Catalyst Chambers - Advocates & Consultants website (React + Express)",
+  "scripts": {
+    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server && node scripts/copy-client-build.js",
+    "start": "node server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
