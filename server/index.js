@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 const { sendContactEmail } = require("./mailer");
 
@@ -29,6 +30,18 @@ app.post("/api/contact", async (req, res) => {
     console.error("Failed to send enquiry email:", err.message);
     res.status(500).json({ error: "Failed to send enquiry. Please try again later." });
   }
+});
+
+// Serve the built React app (client/dist copied into server/dist at deploy time)
+const distPath = path.join(__dirname, "dist");
+app.use(express.static(distPath));
+
+// SPA fallback: send index.html for any non-API route so React Router can handle it
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api")) return next();
+  res.sendFile(path.join(distPath, "index.html"), (err) => {
+    if (err) next();
+  });
 });
 
 app.listen(PORT, () => {
