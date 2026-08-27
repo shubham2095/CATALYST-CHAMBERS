@@ -1,0 +1,72 @@
+.floating-contact {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.floating-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-maroon);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(122, 30, 43, 0.35);
+}
+
+.floating-toggle svg {
+  width: 26px;
+  height: 26px;
+}
+
+.floating-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.floating-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-white);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+
+.floating-pill svg {
+  width: 20px;
+  height: 20px;
+}
+
+.floating-pill.call {
+  background: var(--color-maroon);
+}
+
+.floating-pill.whatsapp {
+  background: #25d366;
+}
+
+@media (max-width: 600px) {
+  .floating-contact {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .floating-toggle {
+    width: 54px;
+    height: 54px;
+  }
+}
