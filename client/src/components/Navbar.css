@@ -139,6 +139,8 @@
   gap: 8px;
   padding: 10px 22px;
   margin-left: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .navbar-toggle {

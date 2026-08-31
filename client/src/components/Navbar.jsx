@@ -17,9 +17,27 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener('scroll', onScroll)
+    let ticking = false
+
+    const evaluate = () => {
+      const y = window.scrollY
+      setScrolled((prev) => {
+        if (y > 80) return true
+        if (y < 40) return false
+        return prev // dead zone between 40-80px avoids flicker at the boundary
+      })
+      ticking = false
+    }
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(evaluate)
+        ticking = true
+      }
+    }
+
+    evaluate()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -42,13 +60,13 @@ export default function Navbar() {
       </div>
 
       <div className="container navbar-inner">
-        <NavLink to="/" className="navbar-brand" onClick={() => setOpen(false)}>
+        <a href="/" className="navbar-brand">
           <img src="/logo.jpeg" alt="Catalyst Chambers" className="navbar-logo" />
           <span className="navbar-brand-text">
             <span className="navbar-brand-name">CATALYST CHAMBERS</span>
             <span className="navbar-brand-sub">Advocates &amp; Consultants</span>
           </span>
-        </NavLink>
+        </a>
 
         <nav className={`navbar-links ${open ? 'is-open' : ''}`}>
           {links.map((link) => (

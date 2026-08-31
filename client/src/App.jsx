@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
 import ScrollToTop from './components/ScrollToTop'
 import FloatingContact from './components/FloatingContact'
+import DisclaimerModal from './components/DisclaimerModal'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -21,6 +22,7 @@ export default function App() {
 
   return (
     <>
+      <DisclaimerModal />
       <ScrollToTop />
       <Navbar />
       <main>
