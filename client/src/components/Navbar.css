@@ -144,9 +144,13 @@
 .navbar-toggle {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   background: transparent;
-  padding: 8px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
 }
 
 .navbar-toggle span {
@@ -217,5 +221,15 @@
 
   .navbar-topbar-links a span {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand-text {
+    display: none;
+  }
+
+  .navbar-logo {
+    height: 44px;
   }
 }
