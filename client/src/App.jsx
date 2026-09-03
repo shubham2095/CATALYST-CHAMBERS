@@ -13,6 +13,8 @@ import Contact from './pages/Contact'
 import Team from './pages/Team'
 import Gallery from './pages/Gallery'
 import FAQ from './pages/FAQ'
+import Blog from './pages/Blog'
+import Careers from './pages/Careers'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import NotFound from './pages/NotFound'
@@ -35,6 +37,8 @@ export default function App() {
             <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
             <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
+            <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+            <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
             <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
             <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
             <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />

@@ -77,6 +77,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .navbar-logo {
@@ -102,6 +103,7 @@
   font-size: 1.2rem;
   color: var(--color-maroon);
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .navbar-brand-sub {
@@ -109,6 +111,7 @@
   color: var(--color-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  white-space: nowrap;
 }
 
 .navbar-links {
@@ -119,16 +122,70 @@
 
 .navbar-link {
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--color-ink);
-  padding: 9px 16px;
+  padding: 9px 13px;
   border-radius: 999px;
   position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: color 0.2s ease, background 0.2s ease;
 }
 
 .navbar-link.is-active,
 .navbar-link:hover {
+  color: var(--color-maroon);
+  background: var(--color-cream);
+}
+
+.navbar-dropdown {
+  position: relative;
+}
+
+.navbar-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.navbar-dropdown-chevron {
+  transition: transform 0.2s ease;
+}
+
+.navbar-dropdown-trigger.is-open .navbar-dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.navbar-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 180px;
+  background: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(31, 26, 23, 0.16);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 10;
+}
+
+.navbar-dropdown-link {
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.navbar-dropdown-link.is-active,
+.navbar-dropdown-link:hover {
   color: var(--color-maroon);
   background: var(--color-cream);
 }
@@ -141,6 +198,16 @@
   margin-left: 12px;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.navbar-cta-whatsapp {
+  color: #25a95a;
+  border-color: #25a95a;
+}
+
+.navbar-cta-whatsapp:hover {
+  background: #25a95a;
+  color: var(--color-white);
 }
 
 .navbar-toggle {
@@ -174,11 +241,13 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .navbar-topbar-tagline {
     display: none;
   }
+}
 
+@media (max-width: 1400px) {
   .navbar-toggle {
     display: flex;
   }
@@ -201,12 +270,29 @@
   }
 
   .navbar-links.is-open {
-    max-height: 480px;
+    max-height: 720px;
     opacity: 1;
     padding: 20px 24px 28px;
   }
 
   .navbar-link {
+    width: 100%;
+  }
+
+  .navbar-dropdown {
+    width: 100%;
+  }
+
+  .navbar-dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar-dropdown-panel {
+    position: static;
+    box-shadow: none;
+    background: var(--color-cream);
+    margin-top: 4px;
     width: 100%;
   }
 

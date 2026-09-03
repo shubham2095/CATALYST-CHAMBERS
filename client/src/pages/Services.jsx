@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { HardHat, Zap, Building2, Landmark, Scale, Home as HomeIcon, ArrowRight, Gavel } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { RevealGroup, RevealItem } from '../components/RevealGroup'
@@ -141,14 +142,17 @@ export default function Services() {
         <Reveal type="scale" className="container cta-inner">
           <h2>Need legal counsel for your matter?</h2>
           <p>Get in touch for a confidential consultation.</p>
-          <a
-            href="https://wa.me/918826654793"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            Contact Us <ArrowRight size={16} strokeWidth={2} />
-          </a>
+          <div className="cta-actions">
+            <a
+              href="https://wa.me/918826654793"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Contact Us <ArrowRight size={16} strokeWidth={2} />
+            </a>
+            <Link to="/contact" className="btn-outline">Book Consultation</Link>
+          </div>
         </Reveal>
       </section>
     </>

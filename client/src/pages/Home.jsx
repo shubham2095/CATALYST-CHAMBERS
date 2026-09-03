@@ -145,9 +145,9 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                <MessageCircle size={17} strokeWidth={2} /> Enquire Now
+                <MessageCircle size={17} strokeWidth={2} /> Book Consultation
               </a>
-              <Link to="/about" className="btn-outline">Learn More</Link>
+              <Link to="/team" className="btn-outline">Meet The Partners</Link>
             </div>
             <div className="hero-badges">
               <span><Award size={16} strokeWidth={1.75} /> Ex-Khaitan &amp; Co. LLP</span>
@@ -330,14 +330,17 @@ export default function Home() {
         <Reveal type="scale" className="container cta-inner">
           <h2>Have a legal matter to discuss?</h2>
           <p>Reach out for a confidential consultation with our team.</p>
-          <a
-            href="https://wa.me/918826654793"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            <MessageCircle size={17} strokeWidth={2} /> Contact Us
-          </a>
+          <div className="cta-actions">
+            <a
+              href="https://wa.me/918826654793"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <MessageCircle size={17} strokeWidth={2} /> Contact Us
+            </a>
+            <Link to="/contact" className="btn-outline">Book Consultation</Link>
+          </div>
         </Reveal>
       </section>
     </>

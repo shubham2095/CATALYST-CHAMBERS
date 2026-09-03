@@ -97,8 +97,8 @@ export default function TermsOfService() {
             <p>
               For any questions regarding these Terms of Service, please
               contact us at{' '}
-              <a href="mailto:info@catalystchambers.com">
-                info@catalystchambers.com
+              <a href="mailto:rohitghosh.alt@gmail.com">
+                rohitghosh.alt@gmail.com
               </a>{' '}
               or call +91 88266 54793.
             </p>

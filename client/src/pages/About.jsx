@@ -238,14 +238,17 @@ export default function About() {
         <Reveal type="scale" className="container cta-inner">
           <h2>Want to know more about our practice?</h2>
           <p>Get in touch to discuss how we can assist you.</p>
-          <a
-            href="https://wa.me/918826654793"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            <MessageCircle size={17} strokeWidth={2} /> Contact Us
-          </a>
+          <div className="cta-actions">
+            <a
+              href="https://wa.me/918826654793"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <MessageCircle size={17} strokeWidth={2} /> Contact Us
+            </a>
+            <Link to="/contact" className="btn-outline">Book Consultation</Link>
+          </div>
         </Reveal>
       </section>
     </>

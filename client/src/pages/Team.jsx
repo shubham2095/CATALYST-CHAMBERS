@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import { Scale, BadgeCheck, Phone, Mail, Sparkles, MessageCircle } from 'lucide-react'
+import LinkedinIcon from '../components/LinkedinIcon'
 import Reveal from '../components/Reveal'
 import { RevealGroup, RevealItem } from '../components/RevealGroup'
 import './Team.css'
@@ -8,6 +10,7 @@ const teamMembers = [
     name: 'Rohit Ghosh',
     role: 'Founder & Lead Advocate',
     photo: '/rohit.jpeg',
+    linkedin: 'https://www.linkedin.com/in/rohit-ghosh-41390078',
     bio: 'B.Sc. (H.), LL.B., Faculty of Law, University of Delhi. Over 10 years of experience across civil & commercial litigation, arbitration, insolvency, banking & finance, constitutional law, and corporate advisory. Previously Senior Associate at Khaitan & Co. LLP, and trained under Sr. Advocates Indira Jaising and Prashanto Chandra Sen.',
     specializations: [
       'Civil & Commercial Litigation',
@@ -66,8 +69,16 @@ export default function Team() {
                     <a href="tel:+918826654793" className="btn-outline">
                       <Phone size={16} strokeWidth={1.75} /> Call
                     </a>
-                    <a href="mailto:info@catalystchambers.com" className="btn-outline">
+                    <a href="mailto:rohitghosh.alt@gmail.com" className="btn-outline">
                       <Mail size={16} strokeWidth={1.75} /> Email
+                    </a>
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline"
+                    >
+                      <LinkedinIcon size={16} /> LinkedIn
                     </a>
                   </div>
                 </div>
@@ -81,14 +92,17 @@ export default function Team() {
         <Reveal type="scale" className="container cta-inner">
           <h2>Want to work with our team?</h2>
           <p>Reach out to discuss your matter with us.</p>
-          <a
-            href="https://wa.me/918826654793"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            <MessageCircle size={17} strokeWidth={2} /> Contact Us
-          </a>
+          <div className="cta-actions">
+            <a
+              href="https://wa.me/918826654793"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <MessageCircle size={17} strokeWidth={2} /> Contact Us
+            </a>
+            <Link to="/contact" className="btn-outline">Book Consultation</Link>
+          </div>
         </Reveal>
       </section>
     </>

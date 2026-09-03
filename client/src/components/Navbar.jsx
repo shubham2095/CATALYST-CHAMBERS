@@ -1,20 +1,32 @@
-import { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import { Phone, Mail, MessageCircle } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { NavLink, Link, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Phone, Mail, MessageCircle, ChevronDown } from 'lucide-react'
+import LinkedinIcon from './LinkedinIcon'
+import WhatsappIcon from './WhatsappIcon'
 import './Navbar.css'
 
-const links = [
+const navLinks = [
   { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/services', label: 'Services' },
+  { to: '/services', label: 'Practice Areas' },
   { to: '/team', label: 'Team' },
+]
+
+const resourceLinks = [
+  { to: '/about', label: 'About' },
+  { to: '/blog', label: 'Blog' },
   { to: '/gallery', label: 'Gallery' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/faq', label: 'FAQ' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [resourcesOpen, setResourcesOpen] = useState(false)
+  const dropdownRef = useRef(null)
+  const location = useLocation()
+
+  const isResourceActive = resourceLinks.some((link) => link.to === location.pathname)
 
   useEffect(() => {
     let ticking = false
@@ -41,6 +53,21 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setResourcesOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const closeAll = () => {
+    setOpen(false)
+    setResourcesOpen(false)
+  }
+
   return (
     <header className={`navbar ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="navbar-topbar">
@@ -49,8 +76,16 @@ export default function Navbar() {
             <a href="tel:+918826654793">
               <Phone strokeWidth={1.75} /> +91 88266 54793
             </a>
-            <a href="mailto:info@catalystchambers.com">
-              <Mail strokeWidth={1.75} /> info@catalystchambers.com
+            <a href="mailto:rohitghosh.alt@gmail.com">
+              <Mail strokeWidth={1.75} /> rohitghosh.alt@gmail.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rohit-ghosh-41390078"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Rohit Ghosh on LinkedIn"
+            >
+              <LinkedinIcon size={14} /> Rohit Ghosh
             </a>
           </div>
           <p className="navbar-topbar-tagline">
@@ -69,26 +104,85 @@ export default function Navbar() {
         </a>
 
         <nav className={`navbar-links ${open ? 'is-open' : ''}`}>
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.to === '/'}
               className={({ isActive }) => `navbar-link ${isActive ? 'is-active' : ''}`}
-              onClick={() => setOpen(false)}
+              onClick={closeAll}
             >
               {link.label}
             </NavLink>
           ))}
+
+          <div className="navbar-dropdown" ref={dropdownRef}>
+            <button
+              type="button"
+              className={`navbar-link navbar-dropdown-trigger ${isResourceActive ? 'is-active' : ''} ${resourcesOpen ? 'is-open' : ''}`}
+              onClick={() => setResourcesOpen((prev) => !prev)}
+              aria-expanded={resourcesOpen}
+            >
+              Resources
+              <ChevronDown size={15} strokeWidth={2} className="navbar-dropdown-chevron" />
+            </button>
+
+            <AnimatePresence>
+              {resourcesOpen && (
+                <motion.div
+                  className="navbar-dropdown-panel"
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {resourceLinks.map((link) => (
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      className={({ isActive }) => `navbar-dropdown-link ${isActive ? 'is-active' : ''}`}
+                      onClick={closeAll}
+                    >
+                      {link.label}
+                    </NavLink>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <NavLink
+            to="/careers"
+            className={({ isActive }) => `navbar-link ${isActive ? 'is-active' : ''}`}
+            onClick={closeAll}
+          >
+            Career
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => `navbar-link ${isActive ? 'is-active' : ''}`}
+            onClick={closeAll}
+          >
+            Contact
+          </NavLink>
+
           <a
             href="https://wa.me/918826654793"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary navbar-cta"
-            onClick={() => setOpen(false)}
+            className="btn-outline navbar-cta navbar-cta-whatsapp"
+            onClick={closeAll}
           >
-            <MessageCircle size={17} strokeWidth={2} /> Enquire Now
+            <WhatsappIcon size={17} /> WhatsApp
           </a>
+          <Link
+            to="/contact"
+            className="btn-primary navbar-cta"
+            onClick={closeAll}
+          >
+            <MessageCircle size={17} strokeWidth={2} /> Book Consultation
+          </Link>
         </nav>
 
         <button

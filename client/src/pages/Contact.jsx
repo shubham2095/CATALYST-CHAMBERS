@@ -9,14 +9,34 @@ import {
   CheckCircle2,
   AlertTriangle,
   Clock,
-  User,
-  MessageSquare,
 } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { RevealGroup, RevealItem } from '../components/RevealGroup'
 import './Contact.css'
 
-const initialForm = { name: '', email: '', phone: '', message: '' }
+const initialForm = {
+  name: '',
+  email: '',
+  phone: '',
+  matterType: '',
+  location: '',
+  message: '',
+}
+
+const matterTypes = [
+  'General Enquiry',
+  'Construction & Infrastructure Dispute',
+  'Company Law & Insolvency',
+  'Banking & Finance Dispute',
+  'Constitutional & Rights-Based Matter',
+  'Real Estate & Property Dispute',
+  'Family / Matrimonial Dispute',
+  'Criminal Matter',
+  'Consumer Dispute',
+  'Employment Dispute',
+  'Arbitration',
+  'Other',
+]
 
 const infoCards = [
   {
@@ -33,8 +53,8 @@ const infoCards = [
     icon: Mail,
     title: 'Email',
     lines: [
-      { text: 'info@catalystchambers.com', href: 'mailto:info@catalystchambers.com' },
       { text: 'rohitghosh.alt@gmail.com', href: 'mailto:rohitghosh.alt@gmail.com' },
+      { text: 'info@catalystchambers.com', href: 'mailto:info@catalystchambers.com' },
     ],
   },
   {
@@ -136,72 +156,91 @@ export default function Contact() {
             </Reveal>
           </div>
 
-          <Reveal type="left" delay={0.1}>
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <h3 className="icon-title"><Send strokeWidth={1.75} /> Send an Enquiry</h3>
+          <Reveal type="left" delay={0.1} className="booking-card">
+            <h3 className="booking-card-title">Book a Consultation</h3>
+            <p className="booking-card-intro">
+              Share a few details about your matter and we&rsquo;ll get back
+              to you to schedule a meeting.
+            </p>
 
-              <label>
-                Name
-                <span className="input-wrap">
-                  <User size={17} strokeWidth={1.75} />
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="contact-form-grid">
+                <label>
+                  Full Name
                   <input
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
+                    placeholder="Your Name"
                     required
                   />
-                </span>
-              </label>
+                </label>
 
-              <label>
-                Email
-                <span className="input-wrap">
-                  <Mail size={17} strokeWidth={1.75} />
+                <label>
+                  Email
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
+                    placeholder="Email Address"
                     required
                   />
-                </span>
-              </label>
+                </label>
 
-              <label>
-                Phone
-                <span className="input-wrap">
-                  <Phone size={17} strokeWidth={1.75} />
+                <label>
+                  Phone
                   <input
                     type="tel"
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
+                    placeholder="Phone Number"
                   />
-                </span>
+                </label>
+
+                <label>
+                  Matter Type
+                  <select name="matterType" value={form.matterType} onChange={handleChange}>
+                    <option value="">Select a matter type</option>
+                    {matterTypes.map((type) => (
+                      <option value={type} key={type}>{type}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                Your Location
+                <input
+                  type="text"
+                  name="location"
+                  value={form.location}
+                  onChange={handleChange}
+                  placeholder="City, State, Country"
+                />
               </label>
 
               <label>
-                Message
-                <span className="input-wrap input-wrap-textarea">
-                  <MessageSquare size={17} strokeWidth={1.75} />
-                  <textarea
-                    name="message"
-                    rows="5"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                  />
-                </span>
+                Brief Description
+                <textarea
+                  name="message"
+                  rows="5"
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="Write your message here..."
+                  required
+                />
               </label>
 
               <motion.button
                 type="submit"
-                className="btn-primary"
+                className="btn-primary contact-submit"
                 disabled={status === 'sending'}
                 whileTap={{ scale: 0.96 }}
               >
-                {status === 'sending' ? 'Sending...' : 'Send Enquiry'}
+                {status === 'sending' ? 'Sending...' : 'Confirm Consultation'}
                 <Send size={16} strokeWidth={2} />
               </motion.button>
 

@@ -146,6 +146,13 @@ button {
   margin-bottom: 48px;
 }
 
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
 .icon-title {
   display: flex;
   align-items: center;

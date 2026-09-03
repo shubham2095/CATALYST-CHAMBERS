@@ -79,8 +79,8 @@ export default function PrivacyPolicy() {
             <p>
               You may request that we delete any personal information you
               have submitted to us by contacting us at{' '}
-              <a href="mailto:info@catalystchambers.com">
-                info@catalystchambers.com
+              <a href="mailto:rohitghosh.alt@gmail.com">
+                rohitghosh.alt@gmail.com
               </a>
               .
             </p>
@@ -96,8 +96,8 @@ export default function PrivacyPolicy() {
             <p>
               If you have any questions about this Privacy Policy, please
               contact us at{' '}
-              <a href="mailto:info@catalystchambers.com">
-                info@catalystchambers.com
+              <a href="mailto:rohitghosh.alt@gmail.com">
+                rohitghosh.alt@gmail.com
               </a>{' '}
               or call +91 88266 54793.
             </p>

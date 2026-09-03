@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { MessageCircle } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import Accordion from '../components/Accordion'
@@ -35,14 +36,17 @@ export default function FAQ() {
         <Reveal type="scale" className="container cta-inner">
           <h2>Still have a question?</h2>
           <p>Get in touch and we&rsquo;ll be happy to help.</p>
-          <a
-            href="https://wa.me/918826654793"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            <MessageCircle size={17} strokeWidth={2} /> Ask on WhatsApp
-          </a>
+          <div className="cta-actions">
+            <a
+              href="https://wa.me/918826654793"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <MessageCircle size={17} strokeWidth={2} /> Ask on WhatsApp
+            </a>
+            <Link to="/contact" className="btn-outline">Book Consultation</Link>
+          </div>
         </Reveal>
       </section>
     </>

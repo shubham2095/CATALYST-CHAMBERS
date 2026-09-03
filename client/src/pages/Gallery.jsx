@@ -1,4 +1,5 @@
-import { Maximize2, Camera } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Maximize2, Camera, MessageCircle } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { RevealGroup, RevealItem } from '../components/RevealGroup'
 import './Gallery.css'
@@ -56,6 +57,24 @@ export default function Gallery() {
             ))}
           </RevealGroup>
         </div>
+      </section>
+
+      <section className="section cta-section">
+        <Reveal type="scale" className="container cta-inner">
+          <h2>Want to visit our office?</h2>
+          <p>Reach out to schedule a consultation with our team.</p>
+          <div className="cta-actions">
+            <a
+              href="https://wa.me/918826654793"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <MessageCircle size={17} strokeWidth={2} /> Contact Us
+            </a>
+            <Link to="/contact" className="btn-outline">Book Consultation</Link>
+          </div>
+        </Reveal>
       </section>
     </>
   )

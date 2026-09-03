@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Link2, Phone, MapPin, Mail, Scale } from 'lucide-react'
+import LinkedinIcon from './LinkedinIcon'
+import WhatsappIcon from './WhatsappIcon'
 import './Footer.css'
 
 const practiceAreas = [
@@ -28,16 +30,33 @@ export default function Footer() {
             Providing strategic, solution-oriented legal representation before all
             Courts, Tribunals, and Statutory Authorities across Delhi NCR.
           </p>
+          <div className="footer-social">
+            <a
+              href="https://www.linkedin.com/in/rohit-ghosh-41390078"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Rohit Ghosh on LinkedIn"
+            >
+              <LinkedinIcon size={17} />
+            </a>
+            <a
+              href="https://wa.me/918826654793"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat on WhatsApp"
+            >
+              <WhatsappIcon size={17} />
+            </a>
+          </div>
         </div>
 
         <div>
           <h4 className="footer-heading icon-title"><Link2 strokeWidth={1.75} /> Quick Links</h4>
           <ul className="footer-links">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/services">Services</Link></li>
-            <li><Link to="/gallery">Gallery</Link></li>
-            <li><Link to="/faq">FAQ</Link></li>
+            <li><Link to="/services">Practice Areas</Link></li>
+            <li><Link to="/team">Team</Link></li>
+            <li><Link to="/careers">Career</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
@@ -65,9 +84,9 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:info@catalystchambers.com">
+              <a href="mailto:rohitghosh.alt@gmail.com">
                 <span className="footer-icon-badge"><Mail strokeWidth={1.75} /></span>
-                info@catalystchambers.com
+                rohitghosh.alt@gmail.com
               </a>
             </li>
           </ul>

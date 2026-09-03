@@ -1,0 +1,300 @@
+.careers-hero {
+  position: relative;
+  background: url('/14.jpeg') center / cover no-repeat;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.careers-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(31, 26, 23, 0.82), rgba(31, 26, 23, 0.9));
+}
+
+.careers-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.careers-hero-label {
+  color: var(--color-gold) !important;
+}
+
+.careers-hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.8rem;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.careers-hero-title span {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.careers-hero-quote {
+  color: #d9d2ca;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.why-join-section {
+  background: var(--color-cream);
+}
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.perk-card {
+  background: var(--color-white);
+  border-radius: 10px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.perk-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(122, 30, 43, 0.12);
+}
+
+.perk-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.perk-card:hover .perk-icon-badge {
+  background: var(--color-maroon);
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.perk-icon-badge svg {
+  width: 26px;
+  height: 26px;
+  color: var(--color-maroon);
+  transition: color 0.3s ease;
+}
+
+.perk-card:hover .perk-icon-badge svg {
+  color: var(--color-gold);
+}
+
+.perk-card h3 {
+  color: var(--color-maroon);
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.perk-card p {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.application-card {
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--color-white);
+  border: 1px solid #ecdfc9;
+  border-radius: 14px;
+  padding: 48px;
+}
+
+.application-card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.application-card-header .section-intro {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+.application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.application-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.application-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.application-form input,
+.application-form select,
+.application-form textarea {
+  font-family: inherit;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  border: 1px solid #d8c9ab;
+  border-radius: 6px;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.application-form input:focus,
+.application-form select:focus,
+.application-form textarea:focus {
+  outline: none;
+  border-color: var(--color-maroon);
+  box-shadow: 0 0 0 3px rgba(122, 30, 43, 0.12);
+}
+
+.application-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.application-field-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 36px 20px;
+  border: 2px dashed #d8c9ab;
+  border-radius: 8px;
+  background: var(--color-cream);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.dropzone:hover {
+  border-color: var(--color-gold);
+  background: #f2e8da;
+}
+
+.dropzone.has-file {
+  border-style: solid;
+  border-color: var(--color-gold);
+}
+
+.dropzone svg {
+  width: 30px;
+  height: 30px;
+  color: var(--color-gold);
+}
+
+.dropzone p {
+  color: var(--color-ink);
+  font-size: 0.92rem;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.dropzone span {
+  color: var(--color-muted);
+  font-size: 0.78rem;
+}
+
+.dropzone-remove {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  color: var(--color-maroon);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.dropzone-remove:hover {
+  text-decoration: underline;
+}
+
+.application-submit {
+  align-self: center;
+  padding: 14px 40px;
+}
+
+.form-status {
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  border-radius: 4px;
+  align-self: center;
+}
+
+.form-status svg {
+  width: 18px;
+  height: 18px;
+}
+
+.form-status.success {
+  background: #e4f3e6;
+  color: #2b7a34;
+}
+
+.form-status.error {
+  background: #fbe4e4;
+  color: #a12c2c;
+}
+
+@media (max-width: 900px) {
+  .perks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .careers-hero {
+    padding: 90px 0;
+  }
+
+  .careers-hero-title {
+    font-size: 2.1rem;
+  }
+
+  .application-card {
+    padding: 28px 22px;
+  }
+
+  .application-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
