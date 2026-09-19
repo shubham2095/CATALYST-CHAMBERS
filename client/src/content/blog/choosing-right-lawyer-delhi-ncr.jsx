@@ -329,7 +329,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
       </p>
       <p>
         Choosing a <Link to="/services">Law Firm in Delhi NCR</Link> that can understand your
-        organisation and provide ongoing legal assistance can help
+        organization and provide ongoing legal assistance can help
         build continuity and reduce the time required to explain your
         business situation every time a new issue arises.
       </p>
