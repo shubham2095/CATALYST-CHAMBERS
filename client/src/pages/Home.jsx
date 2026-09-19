@@ -8,7 +8,6 @@ import {
   Scale,
   Home as HomeIcon,
   CalendarDays,
-  Star,
   Globe,
   Gavel,
   Award,
@@ -164,18 +163,6 @@ export default function Home() {
             <div className="hero-portrait-frame">
               <img src="/rohit.jpeg" alt="Adv. Rohit Ghosh" />
             </div>
-            <motion.div
-              className="hero-portrait-card"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <Star className="hero-portrait-card-icon" strokeWidth={1.75} />
-              <div>
-                <p className="hero-portrait-card-value">5.0</p>
-                <p className="hero-portrait-card-label">Google Rating</p>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>

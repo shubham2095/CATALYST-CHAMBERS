@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom'
 
+function NumberedHeading({ n, children }) {
+  return (
+    <h3 className="blog-numbered-heading">
+      <span className="blog-numbered-heading-badge">{n}</span>
+      {children}
+    </h3>
+  )
+}
+
 export default function ChoosingRightLawyerDelhiNcr() {
   return (
     <>
@@ -40,7 +49,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         law firm to cater to your legal needs.
       </p>
 
-      <h3>1. Understand Your Legal Requirements</h3>
+      <NumberedHeading n={1}>Understand Your Legal Requirements</NumberedHeading>
       <p>
         Before you start searching for a lawyer, clearly identify the
         type of legal assistance you require. Legal matters can
@@ -64,7 +73,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         simply choosing a general legal service provider.
       </p>
 
-      <h3>2. Check the Firm&rsquo;s Areas of Practice</h3>
+      <NumberedHeading n={2}>Check the Firm&rsquo;s Areas of Practice</NumberedHeading>
       <p>
         Different law firms may have different areas of expertise.
         Some may primarily handle corporate matters, while others may
@@ -90,7 +99,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         you the results you are seeking.
       </p>
 
-      <h3>3. Evaluate Relevant Legal Experience</h3>
+      <NumberedHeading n={3}>Evaluate Relevant Legal Experience</NumberedHeading>
       <p>
         Experience is one of the most important factors when selecting
         legal representation. However, the number of years in practice
@@ -123,7 +132,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         effectively.
       </p>
 
-      <h3>4. Look for Clear Communication</h3>
+      <NumberedHeading n={4}>Look for Clear Communication</NumberedHeading>
       <p>
         Legal matters often involve complicated terminology,
         procedures, documents, and timelines. A good lawyer should be
@@ -144,7 +153,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         better decisions throughout the legal process.
       </p>
 
-      <h3>5. Consider Their Approach to Legal Strategy</h3>
+      <NumberedHeading n={5}>Consider Their Approach to Legal Strategy</NumberedHeading>
       <p>
         Every legal matter is different. Therefore, the same strategy
         cannot be applied to every situation.
@@ -178,7 +187,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         and legally sound methods.
       </p>
 
-      <h3>6. Ask About Professional Fees</h3>
+      <NumberedHeading n={6}>Ask About Professional Fees</NumberedHeading>
       <p>
         Legal costs should be discussed before formally engaging any
         legal professional or law firm. Depending on the nature of the
@@ -216,7 +225,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         governing advocates, and is professionally unethical.
       </p>
 
-      <h3>7. Evaluate Professionalism and Responsiveness</h3>
+      <NumberedHeading n={7}>Evaluate Professionalism and Responsiveness</NumberedHeading>
       <p>
         Legal matters can involve deadlines, documentation, hearings,
         negotiations, and making important decisions. Therefore,
@@ -241,7 +250,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         efficient.
       </p>
 
-      <h3>8. Check Reputation, But Don&rsquo;t Rely on Reviews Alone</h3>
+      <NumberedHeading n={8}>Check Reputation, But Don&rsquo;t Rely on Reviews Alone</NumberedHeading>
       <p>
         Online reviews, referrals, professional profiles, and
         recommendations can help you learn more about a law firm.
@@ -268,7 +277,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         courts or other authorities.
       </p>
 
-      <h3>9. Choose Lawyers Who Understand Practical and Business Risks</h3>
+      <NumberedHeading n={9}>Choose Lawyers Who Understand Practical and Business Risks</NumberedHeading>
       <p>
         For companies and entrepreneurs, legal advice often needs to
         consider more than just legal provisions. Business decisions
@@ -296,7 +305,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         disputes.
       </p>
 
-      <h3>10. Schedule an Initial Consultation</h3>
+      <NumberedHeading n={10}>Schedule an Initial Consultation</NumberedHeading>
       <p>
         Before selecting a firm, consider scheduling an initial
         consultation. Prepare a short summary of your matter and keep
@@ -319,7 +328,7 @@ export default function ChoosingRightLawyerDelhiNcr() {
         team.
       </p>
 
-      <h3>11. Choose a Firm That Can Support Your Long-Term Legal Needs</h3>
+      <NumberedHeading n={11}>Choose a Firm That Can Support Your Long-Term Legal Needs</NumberedHeading>
       <p>
         Legal requirements do not always end after one matter is
         resolved. Businesses, in particular, may regularly require

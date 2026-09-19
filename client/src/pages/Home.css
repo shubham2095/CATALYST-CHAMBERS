@@ -101,41 +101,6 @@
   object-position: top center;
 }
 
-.hero-portrait-card {
-  position: absolute;
-  left: -24px;
-  bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--color-white);
-  padding: 14px 20px;
-  border-radius: 12px;
-  box-shadow: 0 14px 30px rgba(31, 26, 23, 0.18);
-}
-
-.hero-portrait-card-icon {
-  width: 30px;
-  height: 30px;
-  color: var(--color-gold);
-  fill: var(--color-gold);
-}
-
-.hero-portrait-card-value {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: var(--color-maroon);
-  line-height: 1;
-}
-
-.hero-portrait-card-label {
-  font-size: 0.72rem;
-  color: var(--color-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
 .stats-section {
   padding: 48px 0;
   background: var(--color-maroon);
@@ -645,9 +610,5 @@
 
   .office-strip {
     grid-template-columns: 1fr;
-  }
-
-  .hero-portrait-card {
-    left: 12px;
   }
 }
