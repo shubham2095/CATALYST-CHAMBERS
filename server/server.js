@@ -3,6 +3,8 @@ require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 
 const express = require("express");
 const helmet = require("helmet");
+const cookieParser = require("cookie-parser");
+const authService = require("./services/authService");
 const routes = require("./routes");
 const contentService = require("./services/contentService");
 const { notFound, errorHandler } = require("./middleware/errorHandler");
@@ -24,7 +26,10 @@ app.use(
     crossOriginResourcePolicy: { policy: "cross-origin" },
   })
 );
+// Admin saves (blog posts) can be larger than public form submissions.
+app.use("/api/admin", express.json({ limit: "2mb" }));
 app.use(express.json({ limit: "100kb" }));
+app.use(cookieParser());
 
 // API
 app.use("/api", routes);
@@ -35,6 +40,11 @@ app.use(express.static(distPath));
 
 // SPA fallback: any other route gets index.html so React Router can handle it (Express 5 needs a regex, not '*')
 app.get(/^\/(?!api(?:\/|$)).*/, (req, res, next) => {
+  // The admin panel must never show up in search results.
+  if (req.path === "/admin" || req.path.startsWith("/admin/")) {
+    res.set("X-Robots-Tag", "noindex, nofollow");
+  }
+
   res.sendFile(path.join(distPath, "index.html"), (err) => {
     if (err) next();
   });
@@ -47,5 +57,11 @@ app.listen(PORT, () => {
 
   if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_TO) {
     console.warn("Warning: EMAIL_USER, EMAIL_PASS or EMAIL_TO is not set. Contact and careers emails will fail.");
+  }
+
+  if (!authService.isConfigured()) {
+    console.warn("Warning: ADMIN_EMAIL, ADMIN_PASSWORD_HASH or JWT_SECRET is not set. Admin login is disabled (run `npm run hash-password`).");
+  } else if (process.env.JWT_SECRET.length < 32) {
+    console.warn("Warning: JWT_SECRET is shorter than 32 characters. Use a longer random value.");
   }
 });

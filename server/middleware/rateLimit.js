@@ -22,4 +22,14 @@ const careersLimiter = limiter({
   message: "Too many applications from this connection. Please try again later.",
 });
 
-module.exports = { contactLimiter, careersLimiter };
+// Only failed attempts count, so a successful login never locks the owner out.
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  skipSuccessfulRequests: true,
+  standardHeaders: "draft-7",
+  legacyHeaders: false,
+  message: { error: "Too many login attempts. Please try again in a few minutes." },
+});
+
+module.exports = { contactLimiter, careersLimiter, loginLimiter };
