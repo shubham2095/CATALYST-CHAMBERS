@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently -n server,client -c blue,green \"npm run dev:server\" \"npm run dev --prefix client\"",
     "dev:server": "nodemon --watch server server/server.js",
-    "build": "npm install --prefix client && npm run build --prefix client",
+    "build": "npm install --prefix client --include=dev && npm run build --prefix client",
     "start": "node server/server.js",
     "hash-password": "node server/scripts/hash-password.js"
   },

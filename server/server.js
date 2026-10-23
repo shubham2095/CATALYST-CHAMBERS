@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const authService = require("./services/authService");
 const routes = require("./routes");
+const { getSitemap } = require("./controllers/seoController");
 const contentService = require("./services/contentService");
 const uploadService = require("./services/uploadService");
 const { notFound, errorHandler } = require("./middleware/errorHandler");
@@ -39,6 +40,12 @@ app.use("/api", notFound);
 
 // Images uploaded from the admin (random file names, so they can be cached for a long time)
 app.use("/uploads", express.static(uploadService.uploadDir(), { maxAge: "30d", immutable: true }));
+
+// Sitemap built from the live content (must come before the static files)
+app.get("/sitemap.xml", getSitemap);
+
+// The logo moved into /images/brand; keep the old address working for links and search results that still use it.
+app.get("/logo.jpeg", (req, res) => res.redirect(301, "/images/brand/logo.jpeg"));
 
 // Built React app
 app.use(express.static(distPath));
