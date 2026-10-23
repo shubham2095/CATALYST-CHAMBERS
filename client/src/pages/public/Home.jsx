@@ -1,99 +1,19 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import {
-  HardHat,
-  Zap,
-  Building2,
-  Landmark,
-  Scale,
-  Home as HomeIcon,
-  CalendarDays,
-  Globe,
-  Gavel,
-  Award,
-  Users,
-  ShieldCheck,
-  ArrowRight,
-  Maximize2,
-  MessageCircle,
-} from 'lucide-react'
+import { ArrowRight, Maximize2, MessageCircle } from 'lucide-react'
 import Reveal from '../../components/common/Reveal'
 import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
 import AnimatedCounter from '../../components/common/AnimatedCounter'
 import Accordion from '../../components/common/Accordion'
-import { faqs } from '../../data/faqs'
+import DynamicIcon from '../../components/common/DynamicIcon'
+import { useContent, useSite } from '../../context/ContentContext'
 import './Home.css'
 
-const practiceAreas = [
-  {
-    icon: HardHat,
-    title: 'Construction & Infrastructure',
-    desc: 'Disputes involving national & state highways, railway infrastructure, and smart city projects.',
-  },
-  {
-    icon: Zap,
-    title: 'Energy, Oil & Gas',
-    desc: 'Regulatory disputes, renewable energy (solar & wind EPC), and offshore construction matters.',
-  },
-  {
-    icon: Building2,
-    title: 'Company Law & Insolvency',
-    desc: 'Insolvency, bankruptcy, winding-up, M&A, shareholder and corporate governance disputes.',
-  },
-  {
-    icon: Landmark,
-    title: 'Banking, Finance & Technology',
-    desc: 'Debt recovery & security enforcement before DRTs/DRATs, debt restructuring, securities advisory.',
-  },
-  {
-    icon: Scale,
-    title: 'Constitutional & Rights-Based Law',
-    desc: 'Human rights, PIL and public law cases, environmental law, and administrative & service law.',
-  },
-  {
-    icon: HomeIcon,
-    title: 'Real Estate & Property',
-    desc: 'Testamentary & succession law, due diligence, land acquisition, and municipal compliance.',
-  },
-]
-
-const stats = [
-  { icon: CalendarDays, value: '10+', label: 'Years of Practice' },
-  { icon: Scale, value: `${practiceAreas.length}`, label: 'Practice Areas' },
-  { icon: Globe, value: '4', label: 'Jurisdictions Covered' },
-  { icon: Gavel, value: '35+', label: 'Landmark Matters' },
-]
-
-const whyChooseUs = [
-  {
-    icon: Award,
-    title: 'Ex-Khaitan & Co. LLP',
-    desc: '6 years as Senior Associate at one of India’s top law firms, handling high-profile clients and complex disputes.',
-  },
-  {
-    icon: Users,
-    title: 'Trained Under Top Seniors',
-    desc: 'Honed under Sr. Advocates Indira Jaising and Prashanto Chandra Sen, appearing in landmark constitutional cases.',
-  },
-  {
-    icon: Gavel,
-    title: 'Supreme Court Experience',
-    desc: 'Extensive appearances before the Supreme Court of India, Delhi High Court, Tribunals, and Statutory Authorities.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Strategic & Confidential',
-    desc: 'Solution-oriented representation with complete confidentiality, tailored to each client’s objectives.',
-  },
-]
-
-const officeGlimpse = [
-  { src: '/images/gallery/8.jpeg', caption: "Advocate's Chamber" },
-  { src: '/images/gallery/9.jpeg', caption: 'Office Corridor' },
-  { src: '/images/gallery/14.jpeg', caption: 'Legal Library' },
-]
-
 export default function Home() {
+  const { home, faqs } = useContent()
+  const { waHref } = useSite()
+  const { hero, stats, whyChooseUs, practiceAreas, officePhotos } = home
+
   return (
     <>
       <section className="hero">
@@ -105,28 +25,26 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="section-label">Advocates &amp; Consultants, New Delhi</p>
-            <h1 className="hero-title">Legal Excellence You Can Trust</h1>
-            <p className="hero-text">
-              Catalyst Chambers is led by Adv. Rohit Ghosh, a New Delhi-based
-              advocate with over 10 years of experience representing companies,
-              institutions, and individuals before the Supreme Court, High
-              Courts, Tribunals, and Statutory Authorities across India.
-            </p>
+            <p className="section-label">{hero.label}</p>
+            <h1 className="hero-title">{hero.title}</h1>
+            <p className="hero-text">{hero.text}</p>
             <div className="hero-actions">
               <a
-                href="https://wa.me/918826654793"
+                href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                <MessageCircle size={17} strokeWidth={2} /> Book Consultation
+                <MessageCircle size={17} strokeWidth={2} /> {hero.primaryCta}
               </a>
-              <Link to="/team" className="btn-outline">Meet The Partners</Link>
+              <Link to="/team" className="btn-outline">{hero.secondaryCta}</Link>
             </div>
             <div className="hero-badges">
-              <span><Award size={16} strokeWidth={1.75} /> Ex-Khaitan &amp; Co. LLP</span>
-              <span><Gavel size={16} strokeWidth={1.75} /> Supreme Court Practice</span>
+              {hero.badges.map((badge) => (
+                <span key={badge.text}>
+                  <DynamicIcon name={badge.icon} size={16} strokeWidth={1.75} /> {badge.text}
+                </span>
+              ))}
             </div>
           </motion.div>
 
@@ -137,7 +55,7 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <div className="hero-portrait-frame">
-              <img src="/images/team/rohit.jpeg" alt="Adv. Rohit Ghosh" />
+              <img src={hero.image} alt="Adv. Rohit Ghosh" />
             </div>
           </motion.div>
         </div>
@@ -149,7 +67,7 @@ export default function Home() {
             {stats.map((stat) => (
               <RevealItem className="stat-card" key={stat.label}>
                 <span className="stat-icon-badge">
-                  <stat.icon strokeWidth={1.75} />
+                  <DynamicIcon name={stat.icon} strokeWidth={1.75} />
                 </span>
                 <p className="stat-value">
                   <AnimatedCounter value={stat.value} />
@@ -177,7 +95,7 @@ export default function Home() {
               <RevealItem className="why-card" key={item.title}>
                 <span className="why-card-index">{String(index + 1).padStart(2, '0')}</span>
                 <span className="why-icon-badge">
-                  <item.icon className="why-icon" strokeWidth={1.75} />
+                  <DynamicIcon name={item.icon} className="why-icon" strokeWidth={1.75} />
                 </span>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
@@ -204,7 +122,7 @@ export default function Home() {
               <RevealItem className="practice-card" key={area.title}>
                 <span className="practice-shine" />
                 <span className="practice-icon-badge">
-                  <area.icon className="practice-icon" strokeWidth={1.75} />
+                  <DynamicIcon name={area.icon} className="practice-icon" strokeWidth={1.75} />
                 </span>
                 <h3>{area.title}</h3>
                 <p>{area.desc}</p>
@@ -228,7 +146,7 @@ export default function Home() {
             <h2 className="section-title">Our Office in Greater Kailash</h2>
           </Reveal>
           <RevealGroup className="office-strip">
-            {officeGlimpse.map((photo) => (
+            {officePhotos.map((photo) => (
               <RevealItem className="office-strip-item" key={photo.src}>
                 <Link to="/gallery" className="office-strip-link">
                   <img src={photo.src} alt={photo.caption} loading="lazy" />
@@ -258,7 +176,7 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <Accordion items={faqs.slice(0, 4)} />
+            <Accordion items={faqs.items.slice(0, 4)} />
             <Link to="/faq" className="faq-view-all">
               View All FAQs <ArrowRight size={15} strokeWidth={2} />
             </Link>
@@ -272,7 +190,7 @@ export default function Home() {
           <p>Reach out for a confidential consultation with our team.</p>
           <div className="cta-actions">
             <a
-              href="https://wa.me/918826654793"
+              href={waHref}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

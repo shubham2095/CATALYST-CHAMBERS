@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Scale, X } from 'lucide-react'
+import { useSite } from '../../context/ContentContext'
 import './DisclaimerModal.css'
 
 export default function DisclaimerModal() {
+  const { disclaimerText } = useSite()
   const [visible, setVisible] = useState(true)
 
   const handleAgree = () => {
@@ -39,17 +41,7 @@ export default function DisclaimerModal() {
           <Scale strokeWidth={1.5} />
         </span>
         <h2 id="disclaimer-title" className="disclaimer-title">Disclaimer</h2>
-        <p className="disclaimer-text">
-          As per the Rules of the Bar Council of India, advocates are not
-          permitted to advertise or solicit work in any manner. Catalyst
-          Chambers confirms that the content of this website is for
-          general informational purposes only, and does not constitute
-          advertising, solicitation, or inducement of any kind. By
-          accessing this website, you confirm that Catalyst Chambers and
-          its members have not advertised, induced, or solicited work
-          from you through this website, and that you are seeking
-          information about this law practice of your own accord.
-        </p>
+        <p className="disclaimer-text">{disclaimerText}</p>
         <button className="btn-primary disclaimer-btn" onClick={handleAgree}>
           I Agree
         </button>

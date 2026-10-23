@@ -4,7 +4,10 @@ require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 const express = require("express");
 const helmet = require("helmet");
 const routes = require("./routes");
+const contentService = require("./services/contentService");
 const { notFound, errorHandler } = require("./middleware/errorHandler");
+
+contentService.init();
 
 const app = express();
 const PORT = process.env.PORT || 5000;

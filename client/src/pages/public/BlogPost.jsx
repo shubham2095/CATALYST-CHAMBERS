@@ -8,7 +8,9 @@ import {
 import Reveal from '../../components/common/Reveal'
 import LinkedinIcon from '../../components/icons/LinkedinIcon'
 import WhatsappIcon from '../../components/icons/WhatsappIcon'
-import { getBlogPost, getAdjacentPost, blogAuthor } from '../../data/blogPosts'
+import BlogBody from '../../components/common/BlogBody'
+import { useContent } from '../../context/ContentContext'
+import { formatPostDate } from '../../utils/formatDate'
 import './Blog.css'
 
 function ShareBar({ title }) {
@@ -57,7 +59,9 @@ function ShareBar({ title }) {
 
 export default function BlogPost() {
   const { slug } = useParams()
-  const post = getBlogPost(slug)
+  const { blog } = useContent()
+  const blogAuthor = blog.author
+  const post = blog.posts.find((p) => p.slug === slug)
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 })
 
@@ -69,8 +73,9 @@ export default function BlogPost() {
     return <Navigate to="/blog" replace />
   }
 
-  const { title, date, location, readingTime, tags, note, externalLink, externalLinkLabel, Content } = post
-  const nextPost = getAdjacentPost(slug)
+  const { title, date, location, readingTime, tags, note, externalLink, externalLinkLabel, embedUrl, body } = post
+  const nextIndex = (blog.posts.findIndex((p) => p.slug === slug) + 1) % blog.posts.length
+  const nextPost = blog.posts[nextIndex]
 
   return (
     <>
@@ -94,7 +99,7 @@ export default function BlogPost() {
                 <span className="blog-hero-author-role">{blogAuthor.role}</span>
               </div>
               <div className="blog-hero-meta">
-                <span><Calendar size={15} strokeWidth={1.75} /> {date}</span>
+                <span><Calendar size={15} strokeWidth={1.75} /> {formatPostDate(date)}</span>
                 <span><MapPin size={15} strokeWidth={1.75} /> {location}</span>
                 {readingTime && <span><Clock size={15} strokeWidth={1.75} /> {readingTime} min read</span>}
               </div>
@@ -108,7 +113,13 @@ export default function BlogPost() {
           <Reveal as="article" className="blog-post" amount={0}>
             {note && <p className="blog-post-note">{note}</p>}
 
-            <Content />
+            {body && <BlogBody html={body} />}
+
+            {embedUrl && (
+              <div className="blog-linkedin-embed">
+                <iframe src={embedUrl} title={`Embedded post: ${title}`} loading="lazy" allowFullScreen />
+              </div>
+            )}
 
             <div className="blog-post-tags">
               {tags.map((tag) => (

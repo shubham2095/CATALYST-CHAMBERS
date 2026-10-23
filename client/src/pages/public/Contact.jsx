@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import Reveal from '../../components/common/Reveal'
 import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
+import { useSite } from '../../context/ContentContext'
 import './Contact.css'
 
 const initialForm = {
@@ -38,40 +39,22 @@ const matterTypes = [
   'Other',
 ]
 
-const infoCards = [
-  {
-    icon: MapPin,
-    title: 'Office Address',
-    lines: ['S-258, Basement, Block S, Greater Kailash-1, New Delhi – 110048'],
-  },
-  {
-    icon: Phone,
-    title: 'Phone',
-    lines: [{ text: '+91 88266 54793', href: 'tel:+918826654793' }],
-  },
-  {
-    icon: Mail,
-    title: 'Email',
-    lines: [
-      { text: 'rohitghosh.alt@gmail.com', href: 'mailto:rohitghosh.alt@gmail.com' },
-      { text: 'info@catalystchambers.com', href: 'mailto:info@catalystchambers.com' },
-    ],
-  },
-  {
-    icon: Globe,
-    title: 'Jurisdictions',
-    lines: ['Delhi NCR · Gurugram · Noida · Pan-India'],
-  },
-  {
-    icon: Clock,
-    title: 'Office Hours',
-    lines: ['Monday – Saturday: 10:00 AM – 8:00 PM', 'Sunday: Closed'],
-  },
-]
-
 export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const site = useSite()
+
+  const infoCards = [
+    { icon: MapPin, title: 'Office Address', lines: [site.address] },
+    { icon: Phone, title: 'Phone', lines: [{ text: site.phone, href: site.telHref }] },
+    {
+      icon: Mail,
+      title: 'Email',
+      lines: site.emails.map((email) => ({ text: email, href: `mailto:${email}` })),
+    },
+    { icon: Globe, title: 'Jurisdictions', lines: [site.jurisdictions.join(' · ')] },
+    { icon: Clock, title: 'Office Hours', lines: site.officeHours },
+  ]
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -144,7 +127,7 @@ export default function Contact() {
               <div className="map-embed">
                 <iframe
                   title="Catalyst Chambers Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.7115410260963!2d77.23186736835737!3d28.548388860974367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce387b2872f8b%3A0x5ce5bf542610e05e!2sCATALYST%20CHAMBERS!5e0!3m2!1sen!2sin!4v1787741651750!5m2!1sen!2sin"
+                  src={site.mapEmbedUrl}
                   width="100%"
                   height="280"
                   style={{ border: 0 }}

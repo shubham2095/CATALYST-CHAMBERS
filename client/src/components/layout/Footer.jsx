@@ -2,17 +2,12 @@ import { Link } from 'react-router-dom'
 import { Link2, Phone, MapPin, Mail, Scale } from 'lucide-react'
 import LinkedinIcon from '../icons/LinkedinIcon'
 import WhatsappIcon from '../icons/WhatsappIcon'
+import { useSite } from '../../context/ContentContext'
 import './Footer.css'
 
-const practiceAreas = [
-  'Construction & Infrastructure',
-  'Company Law & Insolvency',
-  'Banking & Finance',
-  'Constitutional & Rights-Based Law',
-  'Real Estate & Property',
-]
-
 export default function Footer() {
+  const site = useSite()
+
   return (
     <footer className="footer">
       <div className="footer-top-accent" />
@@ -20,27 +15,24 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand-col">
           <div className="footer-brand-row">
-            <img src="/images/brand/logo.jpeg" alt="Catalyst Chambers" className="footer-logo" />
+            <img src="/images/brand/logo.jpeg" alt={site.firmName} className="footer-logo" />
             <div>
-              <h3 className="footer-brand">CATALYST CHAMBERS</h3>
-              <p className="footer-sub">Advocates &amp; Consultants</p>
+              <h3 className="footer-brand">{site.firmName.toUpperCase()}</h3>
+              <p className="footer-sub">{site.tagline}</p>
             </div>
           </div>
-          <p className="footer-text">
-            Providing strategic, solution-oriented legal representation before all
-            Courts, Tribunals, and Statutory Authorities across Delhi NCR.
-          </p>
+          <p className="footer-text">{site.footerText}</p>
           <div className="footer-social">
             <a
-              href="https://www.linkedin.com/in/rohit-ghosh-41390078"
+              href={site.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Rohit Ghosh on LinkedIn"
+              aria-label={`${site.linkedinLabel} on LinkedIn`}
             >
               <LinkedinIcon size={17} />
             </a>
             <a
-              href="https://wa.me/918826654793"
+              href={site.waHref}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp"
@@ -64,7 +56,7 @@ export default function Footer() {
         <div>
           <h4 className="footer-heading icon-title"><Scale strokeWidth={1.75} /> Practice Areas</h4>
           <ul className="footer-links">
-            {practiceAreas.map((area) => (
+            {site.footerPracticeAreas.map((area) => (
               <li key={area}><Link to="/services">{area}</Link></li>
             ))}
           </ul>
@@ -75,18 +67,18 @@ export default function Footer() {
           <ul className="footer-links footer-contact-list">
             <li>
               <span className="footer-icon-badge"><MapPin strokeWidth={1.75} /></span>
-              S-258, Basement, Block S, Greater Kailash-1, New Delhi – 110048
+              {site.address}
             </li>
             <li>
-              <a href="tel:+918826654793">
+              <a href={site.telHref}>
                 <span className="footer-icon-badge"><Phone strokeWidth={1.75} /></span>
-                +91 88266 54793
+                {site.phone}
               </a>
             </li>
             <li>
-              <a href="mailto:rohitghosh.alt@gmail.com">
+              <a href={`mailto:${site.emails[0]}`}>
                 <span className="footer-icon-badge"><Mail strokeWidth={1.75} /></span>
-                rohitghosh.alt@gmail.com
+                {site.emails[0]}
               </a>
             </li>
           </ul>

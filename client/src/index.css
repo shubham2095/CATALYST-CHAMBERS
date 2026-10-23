@@ -165,3 +165,20 @@ button {
   color: var(--color-gold);
   flex-shrink: 0;
 }
+
+/* Shown while the website content is loading (or if it fails to load) */
+.content-gate {
+  min-height: 100vh;
+  background: var(--color-cream);
+}
+
+.content-gate-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px;
+  text-align: center;
+  color: var(--color-muted);
+}

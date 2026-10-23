@@ -1,7 +1,10 @@
 import Reveal from '../../components/common/Reveal'
+import { useSite } from '../../context/ContentContext'
 import './LegalPage.css'
 
 export default function TermsOfService() {
+  const site = useSite()
+
   return (
     <>
       <section className="legal-hero">
@@ -97,10 +100,8 @@ export default function TermsOfService() {
             <p>
               For any questions regarding these Terms of Service, please
               contact us at{' '}
-              <a href="mailto:rohitghosh.alt@gmail.com">
-                rohitghosh.alt@gmail.com
-              </a>{' '}
-              or call +91 88266 54793.
+              <a href={`mailto:${site.emails[0]}`}>{site.emails[0]}</a>{' '}
+              or call {site.phone}.
             </p>
           </Reveal>
         </div>

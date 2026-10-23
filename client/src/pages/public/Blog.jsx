@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 import { Calendar, MapPin, ArrowUpRight, Tag } from 'lucide-react'
 import Reveal from '../../components/common/Reveal'
-import { blogPosts } from '../../data/blogPosts'
+import { useContent } from '../../context/ContentContext'
+import { formatPostDate } from '../../utils/formatDate'
 import './Blog.css'
 
 export default function Blog() {
+  const { blog } = useContent()
+  const blogPosts = blog.posts
+
   return (
     <>
       <section className="blog-hero">
@@ -30,7 +34,7 @@ export default function Blog() {
                 <Link to={`/blog/${post.slug}`} className="blog-card">
                   <h2 className="blog-card-title">{post.title}</h2>
                   <div className="blog-post-meta">
-                    <span><Calendar size={15} strokeWidth={1.75} /> {post.date}</span>
+                    <span><Calendar size={15} strokeWidth={1.75} /> {formatPostDate(post.date)}</span>
                     <span><MapPin size={15} strokeWidth={1.75} /> {post.location}</span>
                   </div>
                   <p className="blog-card-excerpt">{post.excerpt}</p>

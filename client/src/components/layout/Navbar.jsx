@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Mail, MessageCircle, ChevronDown } from 'lucide-react'
 import LinkedinIcon from '../icons/LinkedinIcon'
 import WhatsappIcon from '../icons/WhatsappIcon'
+import { useSite } from '../../context/ContentContext'
 import './Navbar.css'
 
 const navLinks = [
@@ -20,6 +21,7 @@ const resourceLinks = [
 ]
 
 export default function Navbar() {
+  const site = useSite()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [resourcesOpen, setResourcesOpen] = useState(false)
@@ -73,33 +75,33 @@ export default function Navbar() {
       <div className="navbar-topbar">
         <div className="container navbar-topbar-inner">
           <div className="navbar-topbar-links">
-            <a href="tel:+918826654793">
-              <Phone strokeWidth={1.75} /> +91 88266 54793
+            <a href={site.telHref}>
+              <Phone strokeWidth={1.75} /> {site.phone}
             </a>
-            <a href="mailto:rohitghosh.alt@gmail.com">
-              <Mail strokeWidth={1.75} /> rohitghosh.alt@gmail.com
+            <a href={`mailto:${site.emails[0]}`}>
+              <Mail strokeWidth={1.75} /> {site.emails[0]}
             </a>
             <a
-              href="https://www.linkedin.com/in/rohit-ghosh-41390078"
+              href={site.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Rohit Ghosh on LinkedIn"
+              aria-label={`${site.linkedinLabel} on LinkedIn`}
             >
-              <LinkedinIcon size={14} /> Rohit Ghosh
+              <LinkedinIcon size={14} /> {site.linkedinLabel}
             </a>
           </div>
           <p className="navbar-topbar-tagline">
-            Delhi NCR &bull; Gurugram &bull; Noida &bull; Pan-India
+            {site.jurisdictions.join(' • ')}
           </p>
         </div>
       </div>
 
       <div className="container navbar-inner">
         <a href="/" className="navbar-brand">
-          <img src="/images/brand/logo.jpeg" alt="Catalyst Chambers" className="navbar-logo" />
+          <img src="/images/brand/logo.jpeg" alt={site.firmName} className="navbar-logo" />
           <span className="navbar-brand-text">
-            <span className="navbar-brand-name">CATALYST CHAMBERS</span>
-            <span className="navbar-brand-sub">Advocates &amp; Consultants</span>
+            <span className="navbar-brand-name">{site.firmName.toUpperCase()}</span>
+            <span className="navbar-brand-sub">{site.tagline}</span>
           </span>
         </a>
 
@@ -168,7 +170,7 @@ export default function Navbar() {
           </NavLink>
 
           <a
-            href="https://wa.me/918826654793"
+            href={site.waHref}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline navbar-cta navbar-cta-whatsapp"

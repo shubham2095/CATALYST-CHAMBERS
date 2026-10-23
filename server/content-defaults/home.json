@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "label": "Advocates & Consultants, New Delhi",
+    "title": "Legal Excellence You Can Trust",
+    "text": "Catalyst Chambers is led by Adv. Rohit Ghosh, a New Delhi-based advocate with over 10 years of experience representing companies, institutions, and individuals before the Supreme Court, High Courts, Tribunals, and Statutory Authorities across India.",
+    "primaryCta": "Book Consultation",
+    "secondaryCta": "Meet The Partners",
+    "badges": [
+      { "icon": "Award", "text": "Ex-Khaitan & Co. LLP" },
+      { "icon": "Gavel", "text": "Supreme Court Practice" }
+    ],
+    "image": "/images/team/rohit.jpeg"
+  },
+  "stats": [
+    { "icon": "CalendarDays", "value": "10+", "label": "Years of Practice" },
+    { "icon": "Scale", "value": "6", "label": "Practice Areas" },
+    { "icon": "Globe", "value": "4", "label": "Jurisdictions Covered" },
+    { "icon": "Gavel", "value": "35+", "label": "Landmark Matters" }
+  ],
+  "whyChooseUs": [
+    {
+      "icon": "Award",
+      "title": "Ex-Khaitan & Co. LLP",
+      "desc": "6 years as Senior Associate at one of India’s top law firms, handling high-profile clients and complex disputes."
+    },
+    {
+      "icon": "Users",
+      "title": "Trained Under Top Seniors",
+      "desc": "Honed under Sr. Advocates Indira Jaising and Prashanto Chandra Sen, appearing in landmark constitutional cases."
+    },
+    {
+      "icon": "Gavel",
+      "title": "Supreme Court Experience",
+      "desc": "Extensive appearances before the Supreme Court of India, Delhi High Court, Tribunals, and Statutory Authorities."
+    },
+    {
+      "icon": "ShieldCheck",
+      "title": "Strategic & Confidential",
+      "desc": "Solution-oriented representation with complete confidentiality, tailored to each client’s objectives."
+    }
+  ],
+  "practiceAreas": [
+    {
+      "icon": "HardHat",
+      "title": "Construction & Infrastructure",
+      "desc": "Disputes involving national & state highways, railway infrastructure, and smart city projects."
+    },
+    {
+      "icon": "Zap",
+      "title": "Energy, Oil & Gas",
+      "desc": "Regulatory disputes, renewable energy (solar & wind EPC), and offshore construction matters."
+    },
+    {
+      "icon": "Building2",
+      "title": "Company Law & Insolvency",
+      "desc": "Insolvency, bankruptcy, winding-up, M&A, shareholder and corporate governance disputes."
+    },
+    {
+      "icon": "Landmark",
+      "title": "Banking, Finance & Technology",
+      "desc": "Debt recovery & security enforcement before DRTs/DRATs, debt restructuring, securities advisory."
+    },
+    {
+      "icon": "Scale",
+      "title": "Constitutional & Rights-Based Law",
+      "desc": "Human rights, PIL and public law cases, environmental law, and administrative & service law."
+    },
+    {
+      "icon": "Home",
+      "title": "Real Estate & Property",
+      "desc": "Testamentary & succession law, due diligence, land acquisition, and municipal compliance."
+    }
+  ],
+  "officePhotos": [
+    { "src": "/images/gallery/8.jpeg", "caption": "Advocate's Chamber" },
+    { "src": "/images/gallery/9.jpeg", "caption": "Office Corridor" },
+    { "src": "/images/gallery/14.jpeg", "caption": "Legal Library" }
+  ]
+}

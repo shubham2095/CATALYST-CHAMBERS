@@ -2,10 +2,13 @@ import { Link } from 'react-router-dom'
 import { MessageCircle } from 'lucide-react'
 import Reveal from '../../components/common/Reveal'
 import Accordion from '../../components/common/Accordion'
-import { faqs } from '../../data/faqs'
+import { useContent, useSite } from '../../context/ContentContext'
 import './FAQ.css'
 
 export default function FAQ() {
+  const { faqs } = useContent()
+  const { waHref } = useSite()
+
   return (
     <>
       <section className="faq-hero">
@@ -27,7 +30,7 @@ export default function FAQ() {
       <section className="section">
         <div className="container faq-layout">
           <Reveal className="faq-list">
-            <Accordion items={faqs} />
+            <Accordion items={faqs.items} />
           </Reveal>
         </div>
       </section>
@@ -38,7 +41,7 @@ export default function FAQ() {
           <p>Get in touch and we&rsquo;ll be happy to help.</p>
           <div className="cta-actions">
             <a
-              href="https://wa.me/918826654793"
+              href={waHref}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

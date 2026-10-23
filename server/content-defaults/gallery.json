@@ -1,0 +1,13 @@
+{
+  "intro": "A glimpse of our office at Greater Kailash-1, New Delhi.",
+  "photos": [
+    { "src": "/images/gallery/8.jpeg", "caption": "Advocate's Chamber", "featured": true },
+    { "src": "/images/gallery/9.jpeg", "caption": "Office Corridor", "featured": false },
+    { "src": "/images/gallery/10.jpeg", "caption": "Consultation Seating", "featured": false },
+    { "src": "/images/gallery/11.jpeg", "caption": "Chamber Entrance", "featured": false },
+    { "src": "/images/gallery/12.jpeg", "caption": "Meeting Area", "featured": false },
+    { "src": "/images/gallery/14.jpeg", "caption": "Legal Library & Workdesk", "featured": false },
+    { "src": "/images/gallery/4.jpeg", "caption": "Cabin Interior", "featured": false },
+    { "src": "/images/gallery/7.jpeg", "caption": "Cabin View", "featured": false }
+  ]
+}

@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, MessageCircle, X, Headset } from 'lucide-react'
+import { useSite } from '../../context/ContentContext'
 import './FloatingContact.css'
 
-const PHONE_NUMBER = '+918826654793'
-const WHATSAPP_NUMBER = '918826654793'
-
 export default function FloatingContact() {
+  const site = useSite()
   const [open, setOpen] = useState(false)
 
   return (
@@ -21,7 +20,7 @@ export default function FloatingContact() {
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.a
-              href={`tel:${PHONE_NUMBER}`}
+              href={site.telHref}
               className="floating-pill call"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
@@ -30,7 +29,7 @@ export default function FloatingContact() {
               Call Now
             </motion.a>
             <motion.a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              href={site.waHref}
               target="_blank"
               rel="noopener noreferrer"
               className="floating-pill whatsapp"

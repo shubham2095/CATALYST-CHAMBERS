@@ -3,26 +3,13 @@ import { Scale, BadgeCheck, Phone, Mail, Sparkles, MessageCircle } from 'lucide-
 import LinkedinIcon from '../../components/icons/LinkedinIcon'
 import Reveal from '../../components/common/Reveal'
 import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
+import { useContent, useSite } from '../../context/ContentContext'
 import './Team.css'
 
-const teamMembers = [
-  {
-    name: 'Rohit Ghosh',
-    role: 'Founder & Lead Advocate',
-    photo: '/images/team/rohit.jpeg',
-    linkedin: 'https://www.linkedin.com/in/rohit-ghosh-41390078',
-    bio: 'B.Sc. (H.), LL.B., Faculty of Law, University of Delhi. Over 10 years of experience across civil & commercial litigation, arbitration, insolvency, banking & finance, constitutional law, and corporate advisory. Previously Senior Associate at Khaitan & Co. LLP, and trained under Sr. Advocates Indira Jaising and Prashanto Chandra Sen.',
-    specializations: [
-      'Civil & Commercial Litigation',
-      'Arbitration',
-      'Insolvency & Bankruptcy',
-      'Constitutional Law',
-      'Banking & Finance',
-    ],
-  },
-]
-
 export default function Team() {
+  const { team } = useContent()
+  const site = useSite()
+
   return (
     <>
       <section className="team-hero">
@@ -32,11 +19,7 @@ export default function Team() {
           <Reveal>
             <p className="section-label">Our People</p>
             <h1 className="section-title">The Team</h1>
-            <p className="section-intro">
-              Catalyst Chambers is built around a commitment to strategic,
-              solution-oriented representation — led by advocates with deep
-              courtroom and advisory experience.
-            </p>
+            <p className="section-intro">{team.intro}</p>
           </Reveal>
         </div>
       </section>
@@ -44,12 +27,12 @@ export default function Team() {
       <section className="section">
         <div className="container">
           <RevealGroup className="team-grid">
-            {teamMembers.map((member) => (
+            {team.members.map((member) => (
               <RevealItem className="team-card" key={member.name}>
                 <div className="team-card-photo">
                   <img src={member.photo} alt={member.name} />
                   <span className="team-card-badge">
-                    <BadgeCheck size={16} strokeWidth={1.75} /> 10+ Years
+                    <BadgeCheck size={16} strokeWidth={1.75} /> {member.badge}
                   </span>
                 </div>
                 <div className="team-card-body">
@@ -66,10 +49,10 @@ export default function Team() {
                   </div>
 
                   <div className="team-card-actions">
-                    <a href="tel:+918826654793" className="btn-outline">
+                    <a href={site.telHref} className="btn-outline">
                       <Phone size={16} strokeWidth={1.75} /> Call
                     </a>
-                    <a href="mailto:rohitghosh.alt@gmail.com" className="btn-outline">
+                    <a href={`mailto:${site.emails[0]}`} className="btn-outline">
                       <Mail size={16} strokeWidth={1.75} /> Email
                     </a>
                     <a
@@ -94,7 +77,7 @@ export default function Team() {
           <p>Reach out to discuss your matter with us.</p>
           <div className="cta-actions">
             <a
-              href="https://wa.me/918826654793"
+              href={site.waHref}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

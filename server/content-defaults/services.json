@@ -1,0 +1,69 @@
+{
+  "intro": "Catalyst Chambers provides strategic, solution-oriented representation before all Courts, Tribunals, and Statutory Authorities, along with bespoke legal counselling across the following practice areas.",
+  "categories": [
+    {
+      "icon": "HardHat",
+      "title": "Construction & Infrastructure Disputes",
+      "points": ["National & State Highways", "Railway Infrastructure", "Smart City Projects"]
+    },
+    {
+      "icon": "Zap",
+      "title": "Energy & Oil and Gas Disputes",
+      "points": ["Regulatory disputes", "Renewable energy (solar & wind EPC)", "Offshore construction disputes"]
+    },
+    {
+      "icon": "Building2",
+      "title": "Company Cases",
+      "points": [
+        "Insolvency, Bankruptcy, Winding-up & Liquidation",
+        "Mergers & Acquisition",
+        "Mismanagement, Oppression & Shareholder disputes",
+        "Corporate governance, transactions & regulatory compliances",
+        "Competition & Anti-Trust cases",
+        "Labour & Industrial law"
+      ]
+    },
+    {
+      "icon": "Landmark",
+      "title": "Banking, Finance & Technology",
+      "points": [
+        "Debt recovery & security enforcement disputes before DRTs and DRATs",
+        "Debt restructuring and acquisition advisory",
+        "Securities & share markets advisory"
+      ]
+    },
+    {
+      "icon": "Scale",
+      "title": "Constitutional & Rights-Based Law",
+      "points": ["Human rights, PIL & public law cases", "Environmental law cases", "Administrative & Service Law cases"]
+    },
+    {
+      "icon": "Home",
+      "title": "Real Estate & Property Disputes",
+      "points": [
+        "Testamentary & Succession laws",
+        "Due diligences, transactions & bespoke advisory",
+        "Land acquisition disputes",
+        "Municipal & Urban bodies compliances"
+      ]
+    }
+  ],
+  "additionalAreas": [
+    "Original Side & Commercial Suits",
+    "Domestic & International Arbitration",
+    "Mediation & Conciliation",
+    "Taxation Laws",
+    "Mining Laws",
+    "Criminal Appeals",
+    "Maritime Law",
+    "Motor Accident Claims",
+    "Consumer Laws"
+  ],
+  "notableMatters": [
+    { "title": "JSW Steel Ltd. v. South-Western Railways", "detail": "5-Judge Constitution Bench, Supreme Court" },
+    { "title": "State Bank of India", "detail": "Insolvency actions against prominent companies & guarantors" },
+    { "title": "Abhiram Singh v. C.D. Commachen", "detail": "7-Judge Constitution Bench on election law" },
+    { "title": "Vedanta Limited v. Nominated Authority", "detail": "Mining dispute before Delhi High Court" },
+    { "title": "Mumbai Metropolitan Regional Development Authority", "detail": "Supreme Court & Bombay High Court" }
+  ]
+}

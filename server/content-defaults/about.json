@@ -1,0 +1,66 @@
+{
+  "intro": "Catalyst Chambers is a New Delhi-based law practice led by Adv. Rohit Ghosh, offering comprehensive legal solutions across litigation, arbitration, and corporate advisory. We are dedicated to justice and committed to providing strategic, solution-oriented representation to every client.",
+  "profile": {
+    "label": "Founder & Lead Advocate",
+    "name": "Rohit Ghosh",
+    "photo": "/images/team/rohit.jpeg",
+    "badgeValue": "10+ Years",
+    "badgeLabel": "Legal Practice",
+    "paragraphs": [
+      "Rohit Ghosh is a New Delhi-based Advocate with over 10 years of experience. He has learned under the tutelage of top senior advocates in India, including Ms. Indira Jaising and Mr. Prashanto Chandra Sen, and gained extensive experience at Khaitan & Co. LLP, a leading law firm in India, handling end-to-end case management for top companies and high net worth individuals.",
+      "He has appeared in many landmark cases of constitutional importance before the Supreme Court of India and the Delhi High Court, and focuses on advocating for the rights of citizens, procedural fairness, corporate diligence, and good governance."
+    ],
+    "enrolmentNo": "D-2850/2016",
+    "jurisdictions": "Delhi NCR, Gurugram, Noida, Pan-India"
+  },
+  "timeline": [
+    {
+      "icon": "Gavel",
+      "year": "2025 – Present",
+      "role": "Advocate, Chambers of Mr. Rohit Ghosh",
+      "desc": "Running an independent litigation and corporate advisory practice for companies, entities, organizations, and individuals in the New Delhi area."
+    },
+    {
+      "icon": "Scale",
+      "year": "May 2025 – Nov 2025",
+      "role": "Associate, Chambers of Mr. Prashanto Chandra Sen, Senior Advocate",
+      "desc": "Worked across civil & commercial litigation, arbitration, infrastructure disputes, insolvency, mining, electoral, and constitutional matters."
+    },
+    {
+      "icon": "Building2",
+      "year": "2019 – 2025",
+      "role": "Senior Associate, Khaitan & Co. LLP, New Delhi",
+      "desc": "Six years handling high-profile clients — case management, legal strategy, and corporate/regulatory advisories across civil, commercial, insolvency, arbitration, and banking matters."
+    },
+    {
+      "icon": "Scale",
+      "year": "2018 – 2019",
+      "role": "Associate, Chambers of Ms. Bina Gupta, Advocate-on-Record",
+      "desc": "Appeared before the Supreme Court, High Court, District Courts, and Tribunals in constitutional, commercial, IBC, and consumer matters."
+    },
+    {
+      "icon": "Scale",
+      "year": "2016 – 2018",
+      "role": "Associate, Chambers of Ms. Indira Jaising, Senior Advocate",
+      "desc": "Began his career appearing extensively before the Supreme Court of India and Delhi High Court on cases of significant constitutional importance."
+    }
+  ],
+  "education": [
+    { "degree": "LL.B.", "institution": "Faculty of Law (Law Centre-1), University of Delhi" },
+    { "degree": "B.Sc. (Hons.) Physics", "institution": "Hansraj College, University of Delhi" }
+  ],
+  "affiliations": [
+    { "org": "Saket Bar Association (SBA)", "status": "Member, 2026-Present" },
+    { "org": "Delhi High Court Bar Association (DHCBA)", "status": "Member, 2022-Present" },
+    { "org": "Bar Council of India (BCI)", "status": "Advocate, 2017-Present" },
+    { "org": "Bar Council of Delhi (BCD)", "status": "Advocate, Reg. No. D-2850/2016" },
+    { "org": "Delhi State Legal Services Authority (DSLSA)", "status": "Para Legal Volunteer, 2015-2016" }
+  ],
+  "publications": [
+    { "title": "Limited Judicial Review by NCLT and NCLAT During Liquidation Proceedings", "source": "Lexology", "date": "Sept 2022" },
+    { "title": "Moratorium Prohibits Recovery Proceedings of Customs Duty Against Corporate Debtor", "source": "Lexology", "date": "Sept 2022" },
+    { "title": "Allottees in Real Estate Projects Cannot Be Coerced into Settlements by NCLT", "source": "Lexology", "date": "Jan 2022" },
+    { "title": "Supreme Court Reinforces Timelines Under RDB Act", "source": "Lexology", "date": "Feb 2020" },
+    { "title": "Towards the Tipping Point: NRC Exercise in Assam", "source": "The Leaflet", "date": "Oct 2018" }
+  ]
+}

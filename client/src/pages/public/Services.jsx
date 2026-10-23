@@ -1,106 +1,16 @@
 import { Link } from 'react-router-dom'
-import { HardHat, Zap, Building2, Landmark, Scale, Home as HomeIcon, ArrowRight, ArrowUpRight, Gavel } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Gavel } from 'lucide-react'
 import Reveal from '../../components/common/Reveal'
 import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
+import DynamicIcon from '../../components/common/DynamicIcon'
+import { useContent, useSite } from '../../context/ContentContext'
 import './Services.css'
 
-const serviceCategories = [
-  {
-    icon: HardHat,
-    title: 'Construction & Infrastructure Disputes',
-    points: [
-      'National & State Highways',
-      'Railway Infrastructure',
-      'Smart City Projects',
-    ],
-  },
-  {
-    icon: Zap,
-    title: 'Energy & Oil and Gas Disputes',
-    points: [
-      'Regulatory disputes',
-      'Renewable energy (solar & wind EPC)',
-      'Offshore construction disputes',
-    ],
-  },
-  {
-    icon: Building2,
-    title: 'Company Cases',
-    points: [
-      'Insolvency, Bankruptcy, Winding-up & Liquidation',
-      'Mergers & Acquisition',
-      'Mismanagement, Oppression & Shareholder disputes',
-      'Corporate governance, transactions & regulatory compliances',
-      'Competition & Anti-Trust cases',
-      'Labour & Industrial law',
-    ],
-  },
-  {
-    icon: Landmark,
-    title: 'Banking, Finance & Technology',
-    points: [
-      'Debt recovery & security enforcement disputes before DRTs and DRATs',
-      'Debt restructuring and acquisition advisory',
-      'Securities & share markets advisory',
-    ],
-  },
-  {
-    icon: Scale,
-    title: 'Constitutional & Rights-Based Law',
-    points: [
-      'Human rights, PIL & public law cases',
-      'Environmental law cases',
-      'Administrative & Service Law cases',
-    ],
-  },
-  {
-    icon: HomeIcon,
-    title: 'Real Estate & Property Disputes',
-    points: [
-      'Testamentary & Succession laws',
-      'Due diligences, transactions & bespoke advisory',
-      'Land acquisition disputes',
-      'Municipal & Urban bodies compliances',
-    ],
-  },
-]
-
-const additionalAreas = [
-  'Original Side & Commercial Suits',
-  'Domestic & International Arbitration',
-  'Mediation & Conciliation',
-  'Taxation Laws',
-  'Mining Laws',
-  'Criminal Appeals',
-  'Maritime Law',
-  'Motor Accident Claims',
-  'Consumer Laws',
-]
-
-const notableMatters = [
-  {
-    title: 'JSW Steel Ltd. v. South-Western Railways',
-    detail: '5-Judge Constitution Bench, Supreme Court',
-  },
-  {
-    title: 'State Bank of India',
-    detail: 'Insolvency actions against prominent companies & guarantors',
-  },
-  {
-    title: 'Abhiram Singh v. C.D. Commachen',
-    detail: '7-Judge Constitution Bench on election law',
-  },
-  {
-    title: 'Vedanta Limited v. Nominated Authority',
-    detail: 'Mining dispute before Delhi High Court',
-  },
-  {
-    title: 'Mumbai Metropolitan Regional Development Authority',
-    detail: 'Supreme Court & Bombay High Court',
-  },
-]
-
 export default function Services() {
+  const { services } = useContent()
+  const { waHref } = useSite()
+  const { intro, categories, additionalAreas, notableMatters } = services
+
   return (
     <>
       <section className="services-hero">
@@ -110,15 +20,10 @@ export default function Services() {
           <Reveal>
             <p className="section-label">What We Do</p>
             <h1 className="section-title">Our Services</h1>
-            <p className="section-intro">
-              Catalyst Chambers provides strategic, solution-oriented
-              representation before all Courts, Tribunals, and Statutory
-              Authorities, along with bespoke legal counselling across the
-              following practice areas.
-            </p>
+            <p className="section-intro">{intro}</p>
             <div className="services-hero-stats">
-              <span><strong>6</strong> Core Practice Areas</span>
-              <span><strong>9+</strong> Additional Specializations</span>
+              <span><strong>{categories.length}</strong> Core Practice Areas</span>
+              <span><strong>{additionalAreas.length}+</strong> Additional Specializations</span>
             </div>
           </Reveal>
         </div>
@@ -127,11 +32,11 @@ export default function Services() {
       <section className="section">
         <div className="container">
           <RevealGroup className="services-grid">
-            {serviceCategories.map((cat, index) => (
+            {categories.map((cat, index) => (
               <RevealItem className="service-card" key={cat.title}>
                 <span className="service-card-index">{String(index + 1).padStart(2, '0')}</span>
                 <span className="service-icon-badge">
-                  <cat.icon className="service-icon" strokeWidth={1.75} />
+                  <DynamicIcon name={cat.icon} className="service-icon" strokeWidth={1.75} />
                 </span>
                 <h3>{cat.title}</h3>
                 <ul>
@@ -190,7 +95,7 @@ export default function Services() {
           <p>Get in touch for a confidential consultation.</p>
           <div className="cta-actions">
             <a
-              href="https://wa.me/918826654793"
+              href={waHref}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

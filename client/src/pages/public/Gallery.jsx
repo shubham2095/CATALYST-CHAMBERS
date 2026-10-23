@@ -2,20 +2,14 @@ import { Link } from 'react-router-dom'
 import { Maximize2, Camera, MessageCircle } from 'lucide-react'
 import Reveal from '../../components/common/Reveal'
 import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
+import { useContent, useSite } from '../../context/ContentContext'
 import './Gallery.css'
 
-const photos = [
-  { src: '/images/gallery/8.jpeg', caption: "Advocate's Chamber", featured: true },
-  { src: '/images/gallery/9.jpeg', caption: 'Office Corridor' },
-  { src: '/images/gallery/10.jpeg', caption: 'Consultation Seating' },
-  { src: '/images/gallery/11.jpeg', caption: 'Chamber Entrance' },
-  { src: '/images/gallery/12.jpeg', caption: 'Meeting Area' },
-  { src: '/images/gallery/14.jpeg', caption: 'Legal Library & Workdesk' },
-  { src: '/images/gallery/4.jpeg', caption: 'Cabin Interior' },
-  { src: '/images/gallery/7.jpeg', caption: 'Cabin View' },
-]
-
 export default function Gallery() {
+  const { gallery } = useContent()
+  const { waHref } = useSite()
+  const { photos } = gallery
+
   return (
     <>
       <section className="gallery-hero">
@@ -25,9 +19,7 @@ export default function Gallery() {
           <Reveal>
             <p className="section-label">A Look Inside</p>
             <h1 className="section-title">Gallery</h1>
-            <p className="section-intro">
-              A glimpse of our office at Greater Kailash-1, New Delhi.
-            </p>
+            <p className="section-intro">{gallery.intro}</p>
             <p className="gallery-count">
               <Camera size={16} strokeWidth={1.75} /> {photos.length} Photos
             </p>
@@ -65,7 +57,7 @@ export default function Gallery() {
           <p>Reach out to schedule a consultation with our team.</p>
           <div className="cta-actions">
             <a
-              href="https://wa.me/918826654793"
+              href={waHref}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
