@@ -18,4 +18,18 @@ const resumeUpload = multer({
   },
 });
 
-module.exports = { resumeUpload };
+const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
+
+const imageUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+  fileFilter: (req, file, cb) => {
+    if (ALLOWED_IMAGE_TYPES.includes(file.mimetype)) return cb(null, true);
+
+    const err = new Error("Only JPG, PNG or WebP images are allowed.");
+    err.status = 400;
+    cb(err);
+  },
+});
+
+module.exports = { resumeUpload, imageUpload };

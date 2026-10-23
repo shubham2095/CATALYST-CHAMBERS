@@ -7,9 +7,11 @@ const cookieParser = require("cookie-parser");
 const authService = require("./services/authService");
 const routes = require("./routes");
 const contentService = require("./services/contentService");
+const uploadService = require("./services/uploadService");
 const { notFound, errorHandler } = require("./middleware/errorHandler");
 
 contentService.init();
+uploadService.init();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -35,11 +37,14 @@ app.use(cookieParser());
 app.use("/api", routes);
 app.use("/api", notFound);
 
+// Images uploaded from the admin (random file names, so they can be cached for a long time)
+app.use("/uploads", express.static(uploadService.uploadDir(), { maxAge: "30d", immutable: true }));
+
 // Built React app
 app.use(express.static(distPath));
 
 // SPA fallback: any other route gets index.html so React Router can handle it (Express 5 needs a regex, not '*')
-app.get(/^\/(?!api(?:\/|$)).*/, (req, res, next) => {
+app.get(/^\/(?!(?:api|uploads)(?:\/|$)).*/, (req, res, next) => {
   // The admin panel must never show up in search results.
   if (req.path === "/admin" || req.path.startsWith("/admin/")) {
     res.set("X-Robots-Tag", "noindex, nofollow");

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { contentSchemas, SECTIONS } = require("../schemas/contentSchemas");
+const { sanitizeBlogHtml } = require("./sanitizeService");
 
 const projectRoot = path.join(__dirname, "..", "..");
 const defaultsDir = path.join(__dirname, "..", "content-defaults");
@@ -75,10 +76,20 @@ function saveSection(section, data) {
   const result = contentSchemas[section].safeParse(data);
   if (!result.success) {
     const issue = result.error.issues[0];
-    const where = issue.path.length ? ` (${issue.path.join(".")})` : "";
-    const err = new Error(`${issue.message}${where}`);
+    // e.g. ["items", 0, "question"] -> "items › item 1 › question"
+    const where = issue.path.length
+      ? ` (${issue.path.map((part) => (typeof part === "number" ? `item ${part + 1}` : part)).join(" › ")})`
+      : "";
+    const isEmpty = issue.code === "too_small" && issue.origin === "string" && Number(issue.minimum) === 1;
+    const err = new Error(`${isEmpty ? "This field cannot be empty." : issue.message}${where}`);
     err.status = 400;
     throw err;
+  }
+
+  if (section === "blog") {
+    result.data.posts.forEach((post) => {
+      post.body = sanitizeBlogHtml(post.body);
+    });
   }
 
   const live = fileFor(section);

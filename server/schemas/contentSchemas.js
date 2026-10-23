@@ -119,7 +119,13 @@ const blog = z
         note: longText(600).default(""),
         externalLink: text(500).default(""),
         externalLinkLabel: text(100).default(""),
-        embedUrl: text(500).default(""),
+        // Only LinkedIn and YouTube embeds can be shown inside a post.
+        embedUrl: text(500)
+          .refine(
+            (url) => url === "" || /^https:\/\/(www\.linkedin\.com|www\.youtube\.com|www\.youtube-nocookie\.com)\/embed\//.test(url),
+            "Embed link must be a LinkedIn or YouTube embed URL."
+          )
+          .default(""),
         coverImage: assetPath.default(""),
         seoTitle: text(120).default(""),
         seoDescription: text(320).default(""),

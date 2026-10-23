@@ -8,8 +8,8 @@ function notFound(req, res) {
 // eslint-disable-next-line no-unused-vars
 function errorHandler(err, req, res, next) {
   if (err instanceof multer.MulterError) {
-    const message =
-      err.code === "LIMIT_FILE_SIZE" ? "File is too large. Maximum size is 10MB." : err.message;
+    const limit = err.field === "image" ? "5MB" : "10MB";
+    const message = err.code === "LIMIT_FILE_SIZE" ? `File is too large. Maximum size is ${limit}.` : err.message;
     return res.status(400).json({ error: message });
   }
 
