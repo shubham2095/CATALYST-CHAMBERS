@@ -1,5 +1,6 @@
 import ChoosingRightLawyerDelhiNcr from '../content/blog/choosing-right-lawyer-delhi-ncr'
 import IntroducingTheDebrief from '../content/blog/introducing-the-debrief'
+import LinkedinPost from '../content/blog/linkedin-post'
 
 export const blogAuthor = {
   name: 'Rohit Ghosh',
@@ -40,6 +41,18 @@ export const blogPosts = [
       'India', 'Insights', 'Law', 'Legal', 'Litigation', 'Practice',
     ],
     Content: ChoosingRightLawyerDelhiNcr,
+  },
+  {
+    slug: 'linkedin-post',
+    title: 'From LinkedIn: A Post by Rohit Ghosh',
+    date: 'October 23, 2026',
+    location: 'New Delhi, Delhi, India',
+    readingTime: 1,
+    excerpt: 'A recent post shared by Adv. Rohit Ghosh on LinkedIn.',
+    tags: ['LinkedIn', 'Insights', 'Law', 'Legal', 'India'],
+    externalLink: 'https://www.linkedin.com/feed/update/urn:li:ugcPost:7517125747547852800',
+    externalLinkLabel: 'View on LinkedIn',
+    Content: LinkedinPost,
   },
 ]
 

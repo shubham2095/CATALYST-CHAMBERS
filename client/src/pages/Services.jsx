@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { HardHat, Zap, Building2, Landmark, Scale, Home as HomeIcon, ArrowRight, Gavel } from 'lucide-react'
+import { HardHat, Zap, Building2, Landmark, Scale, Home as HomeIcon, ArrowRight, ArrowUpRight, Gavel } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { RevealGroup, RevealItem } from '../components/RevealGroup'
 import './Services.css'
@@ -77,6 +77,29 @@ const additionalAreas = [
   'Consumer Laws',
 ]
 
+const notableMatters = [
+  {
+    title: 'JSW Steel Ltd. v. South-Western Railways',
+    detail: '5-Judge Constitution Bench, Supreme Court',
+  },
+  {
+    title: 'State Bank of India',
+    detail: 'Insolvency actions against prominent companies & guarantors',
+  },
+  {
+    title: 'Abhiram Singh v. C.D. Commachen',
+    detail: '7-Judge Constitution Bench on election law',
+  },
+  {
+    title: 'Vedanta Limited v. Nominated Authority',
+    detail: 'Mining dispute before Delhi High Court',
+  },
+  {
+    title: 'Mumbai Metropolitan Regional Development Authority',
+    detail: 'Supreme Court & Bombay High Court',
+  },
+]
+
 export default function Services() {
   return (
     <>
@@ -132,6 +155,29 @@ export default function Services() {
             {additionalAreas.map((area) => (
               <RevealItem as="span" className="tag" key={area}>
                 <Gavel size={14} strokeWidth={1.75} /> {area}
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
+      <section className="section matters-section">
+        <div className="container">
+          <Reveal>
+            <p className="section-label">Track Record</p>
+            <h2 className="section-title">Notable Matters</h2>
+          </Reveal>
+          <RevealGroup className="matters-list" as="ul">
+            {notableMatters.map((matter, index) => (
+              <RevealItem className="matters-item" as="li" key={matter.title}>
+                <span className="matters-index">{String(index + 1).padStart(2, '0')}</span>
+                <span className="matters-text">
+                  <span className="matters-title">{matter.title}</span>
+                  <span className="matters-detail">
+                    <Gavel size={13} strokeWidth={1.75} /> {matter.detail}
+                  </span>
+                </span>
+                <ArrowUpRight className="matters-arrow" size={20} strokeWidth={1.75} />
               </RevealItem>
             ))}
           </RevealGroup>

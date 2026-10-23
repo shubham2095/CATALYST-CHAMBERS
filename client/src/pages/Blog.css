@@ -464,6 +464,18 @@
   color: var(--color-gold);
 }
 
+.blog-linkedin-embed {
+  display: flex;
+  justify-content: center;
+}
+
+.blog-linkedin-embed iframe {
+  width: 100%;
+  max-width: 504px;
+  height: 700px;
+  border: 0;
+}
+
 .blog-post-note {
   color: var(--color-muted);
   font-size: 0.85rem;
