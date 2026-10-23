@@ -80,8 +80,8 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
-// Serve the built React app (client/dist copied into server/dist at deploy time)
-const distPath = path.join(__dirname, "dist");
+// Serve the built React app straight from client/dist
+const distPath = path.join(__dirname, "..", "client", "dist");
 app.use(express.static(distPath));
 
 // SPA fallback: send index.html for any non-API route so React Router can handle it

@@ -4,10 +4,23 @@
   "version": "1.0.0",
   "description": "Catalyst Chambers - Advocates & Consultants website (React + Express)",
   "scripts": {
-    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server && node scripts/copy-client-build.js",
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev:server\" \"npm run dev --prefix client\"",
+    "dev:server": "nodemon --watch server server/index.js",
+    "build": "npm install --prefix client && npm run build --prefix client",
     "start": "node server/index.js"
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "multer": "^2.3.0",
+    "nodemailer": "^9.0.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.14"
   }
 }
