@@ -5,7 +5,7 @@ import LinkedinPost from '../content/blog/linkedin-post'
 export const blogAuthor = {
   name: 'Rohit Ghosh',
   role: 'Founder & Lead Advocate',
-  photo: '/rohit.jpeg',
+  photo: '/images/team/rohit.jpeg',
   linkedin: 'https://www.linkedin.com/in/rohit-ghosh-41390078',
 }
 

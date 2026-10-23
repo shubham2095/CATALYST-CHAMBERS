@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
 import { Scale, BadgeCheck, Phone, Mail, Sparkles, MessageCircle } from 'lucide-react'
-import LinkedinIcon from '../components/LinkedinIcon'
-import Reveal from '../components/Reveal'
-import { RevealGroup, RevealItem } from '../components/RevealGroup'
+import LinkedinIcon from '../../components/icons/LinkedinIcon'
+import Reveal from '../../components/common/Reveal'
+import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
 import './Team.css'
 
 const teamMembers = [
   {
     name: 'Rohit Ghosh',
     role: 'Founder & Lead Advocate',
-    photo: '/rohit.jpeg',
+    photo: '/images/team/rohit.jpeg',
     linkedin: 'https://www.linkedin.com/in/rohit-ghosh-41390078',
     bio: 'B.Sc. (H.), LL.B., Faculty of Law, University of Delhi. Over 10 years of experience across civil & commercial litigation, arbitration, insolvency, banking & finance, constitutional law, and corporate advisory. Previously Senior Associate at Khaitan & Co. LLP, and trained under Sr. Advocates Indira Jaising and Prashanto Chandra Sen.',
     specializations: [

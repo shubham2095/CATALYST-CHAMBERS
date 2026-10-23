@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { HardHat, Zap, Building2, Landmark, Scale, Home as HomeIcon, ArrowRight, ArrowUpRight, Gavel } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import { RevealGroup, RevealItem } from '../components/RevealGroup'
+import Reveal from '../../components/common/Reveal'
+import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
 import './Services.css'
 
 const serviceCategories = [

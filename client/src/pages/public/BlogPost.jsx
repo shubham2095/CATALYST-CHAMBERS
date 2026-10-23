@@ -5,10 +5,10 @@ import {
   Calendar, MapPin, Tag, ExternalLink, ArrowLeft, ArrowRight,
   Clock, Link2, Check,
 } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import LinkedinIcon from '../components/LinkedinIcon'
-import WhatsappIcon from '../components/WhatsappIcon'
-import { getBlogPost, getAdjacentPost, blogAuthor } from '../data/blogPosts'
+import Reveal from '../../components/common/Reveal'
+import LinkedinIcon from '../../components/icons/LinkedinIcon'
+import WhatsappIcon from '../../components/icons/WhatsappIcon'
+import { getBlogPost, getAdjacentPost, blogAuthor } from '../../data/blogPosts'
 import './Blog.css'
 
 function ShareBar({ title }) {

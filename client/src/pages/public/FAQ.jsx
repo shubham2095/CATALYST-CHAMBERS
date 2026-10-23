@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { MessageCircle } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import Accordion from '../components/Accordion'
-import { faqs } from '../data/faqs'
+import Reveal from '../../components/common/Reveal'
+import Accordion from '../../components/common/Accordion'
+import { faqs } from '../../data/faqs'
 import './FAQ.css'
 
 export default function FAQ() {

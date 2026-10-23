@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Mail, MessageCircle, ChevronDown } from 'lucide-react'
-import LinkedinIcon from './LinkedinIcon'
-import WhatsappIcon from './WhatsappIcon'
+import LinkedinIcon from '../icons/LinkedinIcon'
+import WhatsappIcon from '../icons/WhatsappIcon'
 import './Navbar.css'
 
 const navLinks = [
@@ -96,7 +96,7 @@ export default function Navbar() {
 
       <div className="container navbar-inner">
         <a href="/" className="navbar-brand">
-          <img src="/logo.jpeg" alt="Catalyst Chambers" className="navbar-logo" />
+          <img src="/images/brand/logo.jpeg" alt="Catalyst Chambers" className="navbar-logo" />
           <span className="navbar-brand-text">
             <span className="navbar-brand-name">CATALYST CHAMBERS</span>
             <span className="navbar-brand-sub">Advocates &amp; Consultants</span>

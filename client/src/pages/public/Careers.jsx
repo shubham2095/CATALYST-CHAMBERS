@@ -11,8 +11,8 @@ import {
   AlertTriangle,
   X,
 } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import { RevealGroup, RevealItem } from '../components/RevealGroup'
+import Reveal from '../../components/common/Reveal'
+import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
 import './Careers.css'
 
 const perks = [

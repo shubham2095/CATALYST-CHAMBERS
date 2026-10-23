@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Calendar, MapPin, ArrowUpRight, Tag } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import { blogPosts } from '../data/blogPosts'
+import Reveal from '../../components/common/Reveal'
+import { blogPosts } from '../../data/blogPosts'
 import './Blog.css'
 
 export default function Blog() {

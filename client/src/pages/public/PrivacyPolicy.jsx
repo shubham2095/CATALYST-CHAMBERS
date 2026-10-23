@@ -1,4 +1,4 @@
-import Reveal from '../components/Reveal'
+import Reveal from '../../components/common/Reveal'
 import './LegalPage.css'
 
 export default function PrivacyPolicy() {

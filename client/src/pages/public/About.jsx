@@ -11,8 +11,8 @@ import {
   BadgeCheck,
   MessageCircle,
 } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import { RevealGroup, RevealItem } from '../components/RevealGroup'
+import Reveal from '../../components/common/Reveal'
+import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
 import './About.css'
 
 const timeline = [
@@ -120,7 +120,7 @@ export default function About() {
         <div className="container profile-grid">
           <Reveal type="right" className="profile-photo-wrap" as="div">
             <div className="profile-photo">
-              <img src="/rohit.jpeg" alt="Adv. Rohit Ghosh" />
+              <img src="/images/team/rohit.jpeg" alt="Adv. Rohit Ghosh" />
             </div>
             <div className="profile-photo-badge">
               <BadgeCheck strokeWidth={1.75} />

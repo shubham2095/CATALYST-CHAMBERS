@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Link2, Phone, MapPin, Mail, Scale } from 'lucide-react'
-import LinkedinIcon from './LinkedinIcon'
-import WhatsappIcon from './WhatsappIcon'
+import LinkedinIcon from '../icons/LinkedinIcon'
+import WhatsappIcon from '../icons/WhatsappIcon'
 import './Footer.css'
 
 const practiceAreas = [
@@ -20,7 +20,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand-col">
           <div className="footer-brand-row">
-            <img src="/logo.jpeg" alt="Catalyst Chambers" className="footer-logo" />
+            <img src="/images/brand/logo.jpeg" alt="Catalyst Chambers" className="footer-logo" />
             <div>
               <h3 className="footer-brand">CATALYST CHAMBERS</h3>
               <p className="footer-sub">Advocates &amp; Consultants</p>

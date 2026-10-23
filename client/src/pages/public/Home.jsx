@@ -17,11 +17,11 @@ import {
   Maximize2,
   MessageCircle,
 } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import { RevealGroup, RevealItem } from '../components/RevealGroup'
-import AnimatedCounter from '../components/AnimatedCounter'
-import Accordion from '../components/Accordion'
-import { faqs } from '../data/faqs'
+import Reveal from '../../components/common/Reveal'
+import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
+import AnimatedCounter from '../../components/common/AnimatedCounter'
+import Accordion from '../../components/common/Accordion'
+import { faqs } from '../../data/faqs'
 import './Home.css'
 
 const practiceAreas = [
@@ -88,9 +88,9 @@ const whyChooseUs = [
 ]
 
 const officeGlimpse = [
-  { src: '/8.jpeg', caption: "Advocate's Chamber" },
-  { src: '/9.jpeg', caption: 'Office Corridor' },
-  { src: '/14.jpeg', caption: 'Legal Library' },
+  { src: '/images/gallery/8.jpeg', caption: "Advocate's Chamber" },
+  { src: '/images/gallery/9.jpeg', caption: 'Office Corridor' },
+  { src: '/images/gallery/14.jpeg', caption: 'Legal Library' },
 ]
 
 export default function Home() {
@@ -137,7 +137,7 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <div className="hero-portrait-frame">
-              <img src="/rohit.jpeg" alt="Adv. Rohit Ghosh" />
+              <img src="/images/team/rohit.jpeg" alt="Adv. Rohit Ghosh" />
             </div>
           </motion.div>
         </div>

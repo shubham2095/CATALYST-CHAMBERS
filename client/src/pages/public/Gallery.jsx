@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom'
 import { Maximize2, Camera, MessageCircle } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import { RevealGroup, RevealItem } from '../components/RevealGroup'
+import Reveal from '../../components/common/Reveal'
+import { RevealGroup, RevealItem } from '../../components/common/RevealGroup'
 import './Gallery.css'
 
 const photos = [
-  { src: '/8.jpeg', caption: "Advocate's Chamber", featured: true },
-  { src: '/9.jpeg', caption: 'Office Corridor' },
-  { src: '/10.jpeg', caption: 'Consultation Seating' },
-  { src: '/11.jpeg', caption: 'Chamber Entrance' },
-  { src: '/12.jpeg', caption: 'Meeting Area' },
-  { src: '/14.jpeg', caption: 'Legal Library & Workdesk' },
-  { src: '/4.jpeg', caption: 'Cabin Interior' },
-  { src: '/7.jpeg', caption: 'Cabin View' },
+  { src: '/images/gallery/8.jpeg', caption: "Advocate's Chamber", featured: true },
+  { src: '/images/gallery/9.jpeg', caption: 'Office Corridor' },
+  { src: '/images/gallery/10.jpeg', caption: 'Consultation Seating' },
+  { src: '/images/gallery/11.jpeg', caption: 'Chamber Entrance' },
+  { src: '/images/gallery/12.jpeg', caption: 'Meeting Area' },
+  { src: '/images/gallery/14.jpeg', caption: 'Legal Library & Workdesk' },
+  { src: '/images/gallery/4.jpeg', caption: 'Cabin Interior' },
+  { src: '/images/gallery/7.jpeg', caption: 'Cabin View' },
 ]
 
 export default function Gallery() {

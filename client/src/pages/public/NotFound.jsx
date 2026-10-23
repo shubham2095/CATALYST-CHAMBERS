@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Scale, ArrowLeft } from 'lucide-react'
-import Reveal from '../components/Reveal'
+import Reveal from '../../components/common/Reveal'
 import './NotFound.css'
 
 export default function NotFound() {
